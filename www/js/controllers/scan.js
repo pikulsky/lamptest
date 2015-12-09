@@ -3,6 +3,7 @@ function ScanCtrl() {
   var self = this;
 
   self.scanBarcode = function() {
+    alert('Scan!');
     /*$cordovaBarcodeScanner.scan().then(function(imageData) {
       alert(imageData.text);
       console.log("Barcode Format -> " + imageData.format);

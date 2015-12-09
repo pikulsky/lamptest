@@ -1,4 +1,4 @@
-angular.module('lampTest', ['ionic', 'ngCordova'])
+angular.module('lampTest', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
