@@ -15,15 +15,12 @@ function ScanCtrl() {
         alert("Scanning failed: " + error);
       }
     );
-
-    /*$cordovaBarcodeScanner.scan().then(function(imageData) {
-      alert(imageData.text);
-      console.log("Barcode Format -> " + imageData.format);
-      console.log("Cancelled -> " + imageData.cancelled);
-    }, function(error) {
-      console.log("An error happened -> " + error);
-    });*/
   };
+
+  self.lookupBarcode = function(barcode) {
+    // Make request to www.ean-search.org here
+    // 'http://www.ean-search.org/perl/ean-search.pl?q=' + barcode
+  }
 }
 
 angular.module('lampTest')
