@@ -1,4 +1,3 @@
-//function ScanCtrl($cordovaBarcodeScanner) {
 function ScanCtrl() {
   var self = this;
 

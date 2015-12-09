@@ -2,7 +2,6 @@
   "name": "LampTest",
   "private": "true",
   "dependencies": {
-    "ngCordova": "driftyco/ng-cordova"
   },
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.1.1"
