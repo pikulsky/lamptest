@@ -1,11 +1,11 @@
 <ion-view view-title="Scan">
     <ion-content class="app-content has-padding">
 
-        <h1>Scan a barcode!</h1>
+        <h1>{{ 'SCAN_BARCODE_HEADER' | translate }}</h1>
 
-        <button class="button button-full button-large button-balanced" ng-click="scanCtrl.scanBarcode()">Scan</button>
+        <button class="button button-full button-large button-balanced" ng-click="scanCtrl.scanBarcode()">{{ 'SCAN_BARCODE_BTN' | translate }}</button>
 
-        <p>All data is provided by <a href="http://lamptest.ru" target="_system">LampTest</a> site.</p>
+        <p>{{ 'DATA_SOURCE' | translate }} <a href="http://lamptest.ru">Lamptest</a></p>
 
     </ion-content>
 </ion-view>

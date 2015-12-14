@@ -5,6 +5,4 @@ node_modules/
 platforms/
 plugins/
 .idea/
-www/lib/*
-www/lib/!ionic
 gulp.config.local.js

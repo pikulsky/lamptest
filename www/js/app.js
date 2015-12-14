@@ -1,6 +1,6 @@
-angular.module('lampTest', ['ionic'])
+angular.module('lampTest', ['ionic', 'pascalprecht.translate'])
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $translateProvider) {
   $stateProvider
       .state('scan', {
         url: '/scan',
@@ -10,6 +10,19 @@ angular.module('lampTest', ['ionic'])
       });
 
   $urlRouterProvider.otherwise('/scan');
+
+  $translateProvider.translations('en', {
+    SCAN_BARCODE_HEADER: 'Scan a barcode!',
+    SCAN_BARCODE_BTN: 'Scan',
+    DATA_SOURCE: 'Data is provided by '
+  })
+  .translations('ru', {
+    SCAN_BARCODE_HEADER: 'Отсканируйте штрих-код!',
+    SCAN_BARCODE_BTN: 'Сканировать',
+    DATA_SOURCE: 'Данные предоставлены сайтом '
+  });
+
+  $translateProvider.preferredLanguage('ru');
 })
 
 .run(function($ionicPlatform) {
