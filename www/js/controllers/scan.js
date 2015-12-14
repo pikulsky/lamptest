@@ -2,9 +2,12 @@ function ScanCtrl() {
   var self = this;
 
   self.scanBarcode = function() {
-    alert('Scan!');
+    if (!window.cordova || !window.cordova.plugins || !window.cordova.plugins.barcodeScanner) {
+      alert('Barcode scanner not available');
+      return;
+    }
 
-    cordova.plugins.barcodeScanner.scan(
+    window.cordova.plugins.barcodeScanner.scan(
       function (result) {
         alert("We got a barcode\n" +
           "Result: " + result.text + "\n" +
