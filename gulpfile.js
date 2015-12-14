@@ -3,49 +3,95 @@ var gutil = require('gulp-util');
 var bower = require('bower');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
-var sh = require('shelljs');
 
-var paths = {
-  sass: ['./scss/**/*.scss']
-};
+gulp.task('default', []);
 
-gulp.task('default', ['sass']);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Deploy builds to HockeyApp
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function hockeyAppDeploy(platformConfig) {
+  return new Promise(function(resolve, reject) {
+    var options = {
+      url: 'https://rink.hockeyapp.net/api/2/apps/' + platformConfig.id + '/app_versions/upload',
+      headers: {
+        'X-HockeyAppToken': config.hockeyApp.apiToken
+      },
+      formData: {
+        ipa: fs.createReadStream(__dirname + '/build/' + platformConfig.file),
+        notify: 0,
+        status: 2,
+        teams: config.hockeyApp.buildTeams
+      }
+    };
 
-gulp.task('sass', function(done) {
-  gulp.src('./scss/ionic.app.scss')
-    .pipe(sass())
-    .on('error', sass.logError)
-    .pipe(gulp.dest('./www/css/'))
-    .pipe(minifyCss({
-      keepSpecialComments: 0
-    }))
-    .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest('./www/css/'))
-    .on('end', done);
-});
+    request.post(options, function(err, response, body) {
+      if (err) {
+        reject(err);
+      }
+      else if (response.statusCode != 201) {
+        reject({
+          status: response.statusCode,
+          body: response.body
+        });
+      }
 
-gulp.task('watch', function() {
-  gulp.watch(paths.sass, ['sass']);
-});
-
-gulp.task('install', ['git-check'], function() {
-  return bower.commands.install()
-    .on('log', function(data) {
-      gutil.log('bower', gutil.colors.cyan(data.id), data.message);
+      resolve(response);
     });
+  });
+}
+gulp.task('hockeyapp-android', [], function(done) {
+  hockeyAppDeploy(config.hockeyApp.platforms.android).then(
+    function success(response) {
+      gutil.log(response.body);
+      done();
+    },
+    function failure(err) {
+      gutil.log(err);
+      done();
+    }
+  );
 });
-
-gulp.task('git-check', function(done) {
-  if (!sh.which('git')) {
-    console.log(
-      '  ' + gutil.colors.red('Git is not installed.'),
-      '\n  Git, the version control system, is required to download Ionic.',
-      '\n  Download git here:', gutil.colors.cyan('http://git-scm.com/downloads') + '.',
-      '\n  Once git is installed, run \'' + gutil.colors.cyan('gulp install') + '\' again.'
-    );
-    process.exit(1);
-  }
-  done();
+gulp.task('hockeyapp-wp', [], function(done) {
+  hockeyAppDeploy(config.hockeyApp.platforms.wp).then(
+    function success() {
+      gutil.log(response.body);
+      done();
+    },
+    function failure(err) {
+      gutil.log(err);
+      done();
+    }
+  );
+});
+gulp.task('hockeyapp-ios', ['phonegap-build'], function(done) {
+  hockeyAppDeploy(config.hockeyApp.platforms.ios).then(
+    function success() {
+      gutil.log(response.body);
+      done();
+    },
+    function failure(err) {
+      gutil.log(err);
+      done();
+    }
+  );
+});
+gulp.task('hockeyapp-all', ['phonegap-build'], function(done) {
+  var promises = [
+    hockeyAppDeploy(config.hockeyApp.platforms.android),
+    hockeyAppDeploy(config.hockeyApp.platforms.ios)
+  ];
+  Promise.all(promises).then(
+    function success(values) {
+      gutil.log('Android response:');
+      gutil.log(values[0].body);
+      gutil.log('iOS response:');
+      gutil.log(values[1].body);
+      done();
+    },
+    function failure(err) {
+      gutil.log(err);
+      done();
+    }
+  );
 });
