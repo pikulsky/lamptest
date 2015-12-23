@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Icon with opaque background is used because iOS creates rectangular icon with rounded corners automatically
+
 convert ./icon-opaque.png -resize 60x60 ../resources/ios/icon/icon-60.png
 convert ./icon-opaque.png -resize 120x120 ../resources/ios/icon/icon-60@2x.png
 convert ./icon-opaque.png -resize 76x76 ../resources/ios/icon/icon-76.png
