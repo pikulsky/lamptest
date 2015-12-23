@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Put icon.png into resources folder in the root of Cordova project
+
+ionic resources --icons

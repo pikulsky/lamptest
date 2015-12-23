@@ -1,0 +1,17 @@
+#!/bin/bash
+
+convert ./icon-opaque.png -resize 60x60 ../resources/ios/icon/icon-60.png
+convert ./icon-opaque.png -resize 120x120 ../resources/ios/icon/icon-60@2x.png
+convert ./icon-opaque.png -resize 76x76 ../resources/ios/icon/icon-76.png
+convert ./icon-opaque.png -resize 152x152 ../resources/ios/icon/icon-76@2x.png
+convert ./icon-opaque.png -resize 40x40 ../resources/ios/icon/icon-40.png
+convert ./icon-opaque.png -resize 80x80 ../resources/ios/icon/icon-40@2x.png
+convert ./icon-opaque.png -resize 57x57 ../resources/ios/icon/icon.png
+convert ./icon-opaque.png -resize 114x114 ../resources/ios/icon/icon@2x.png
+convert ./icon-opaque.png -resize 72x72 ../resources/ios/icon/icon-72.png
+convert ./icon-opaque.png -resize 144x144 ../resources/ios/icon/icon-72@2x.png
+convert ./icon-opaque.png -resize 29x29 ../resources/ios/icon/icon-small.png
+convert ./icon-opaque.png -resize 58x58 ../resources/ios/icon/icon-small@2x.png
+convert ./icon-opaque.png -resize 50x50 ../resources/ios/icon/icon-50.png
+convert ./icon-opaque.png -resize 100x100 ../resources/ios/icon/icon-50@2x.png
+convert ./icon-opaque.png -resize 120x120 ../resources/ios/icon/icon-60@2x.png
