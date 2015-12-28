@@ -1,0 +1,12 @@
+#!/bin/bash
+
+convert ./splash.png -resize 320x480^ -gravity center -extent 320x480 ../resources/ios/splash/Default.png
+convert ./splash.png -resize 640x960^ -gravity center -extent 640x960 ../resources/ios/splash/Default@2x.png
+convert ./splash.png -resize 640x1136^ -gravity center -extent 640x1136 ../resources/ios/splash/Default-568h@2x.png
+convert ./splash.png -resize 750x1334^ -gravity center -extent 750x1334 ../resources/ios/splash/Default-667h@2x.png
+convert ./splash.png -resize 1242x2208^ -gravity center -extent 1242x2208 ../resources/ios/splash/Default-Portrait-736h@3x.png
+convert ./splash.png -resize 2208x1242^ -gravity center -extent 2208x1242 ../resources/ios/splash/Default-Landscape-736h@3x.png
+convert ./splash.png -resize 768x1024^ -gravity center -extent 768x1024 ../resources/ios/splash/Default-Portrait.png
+convert ./splash.png -resize 1024x768^ -gravity center -extent 1024x768 ../resources/ios/splash/Default-Landscape.png
+convert ./splash.png -resize 1536x2048^ -gravity center -extent 1536x2048 ../resources/ios/splash/Default-Portrait@2x.png
+convert ./splash.png -resize 2048x1536^ -gravity center -extent 2048x1536 ../resources/ios/splash/Default-Landscape@2x.png

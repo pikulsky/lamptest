@@ -4,4 +4,5 @@
 # Put icon.png into resources folder
 # After android icons are generated the original icon can be removed
 
-ionic resources --icons
+cd ..
+ionic resources android --icon
