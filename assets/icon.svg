@@ -13,7 +13,10 @@
    id="svg20180"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="icon.svg">
+   sodipodi:docname="icon.svg"
+   inkscape:export-filename="/home/ink/projects/LampTest/src/assets/icon-opaque.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <metadata
      id="metadata20752">
     <rdf:RDF>
@@ -22,7 +25,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -43,11 +46,11 @@
      showgrid="false"
      inkscape:zoom="2.0000001"
      inkscape:cx="100.91407"
-     inkscape:cy="63.136564"
+     inkscape:cy="23.136566"
      inkscape:window-x="1917"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer4" />
+     inkscape:current-layer="svg20180" />
   <g
      inkscape:groupmode="layer"
      id="layer16"
@@ -56,7 +59,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer5"
-     inkscape:label="rounded background">
+     inkscape:label="rounded background"
+     style="display:none">
     <g
        id="g3992"
        transform="matrix(6.1376011,0,0,-6.1376011,139.09517,189)">
@@ -201,11 +205,6 @@
      style="fill:#fee3a3;stroke:none"
      d="m 122.65103,171.92992 3.92935,3.92935 -3.92935,-3.92935 z"
      id="path20740"
-     inkscape:connector-curvature="0" />
-  <path
-     style="fill:#fcf8e7;stroke:none"
-     d="m 151,191 c 4.969,2.0851 11.65,1 17,1 l 36,0 125,0 c -4.969,-2.0851 -11.65,-1 -17,-1 l -36,0 -125,0 m 275,0 c 3.699,1.552 8.017,1 12,1 l 20,0 c -3.699,-1.552 -8.017,-1 -12,-1 l -20,0 z"
-     id="path20746"
      inkscape:connector-curvature="0" />
   <g
      inkscape:groupmode="layer"
