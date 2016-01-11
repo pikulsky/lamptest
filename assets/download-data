@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Download data from lamptest.ru site
+
+curl http://lamptest.ru/led.csv > ./led.csv
