@@ -5,7 +5,13 @@
 
         <button class="button button-full button-large button-balanced" ng-click="scanCtrl.scanBarcode()">{{ 'SCAN_BARCODE_BTN' | translate }}</button>
 
+        <button class="button button-full button-large button-balanced" ng-click="scanCtrl.lookupBarcode('4895117820926')">{{ 'LOOKUP_BARCODE_BTN' | translate }}</button>
+
+        <button class="button button-full button-large button-balanced" ng-click="scanCtrl.clear()">{{ 'CLEAR_BTN' | translate }}</button>
+
         <p>{{ 'DATA_SOURCE' | translate }} <a href="http://lamptest.ru">Lamptest</a></p>
+
+        <pre>{{scanCtrl.result}}</pre>
 
     </ion-content>
 </ion-view>

@@ -9,10 +9,15 @@ function ScanCtrl() {
 
     window.cordova.plugins.barcodeScanner.scan(
       function (result) {
-        alert("We got a barcode\n" +
-          "Result: " + result.text + "\n" +
-          "Format: " + result.format + "\n" +
-          "Cancelled: " + result.cancelled);
+
+        self.result += JSON.stringify(result);
+
+        if (result.cancelled) {
+          self.result += 'Cancelled: ' + result.cancelled;
+        }
+        else if (result.text) {
+          self.lookupBarcode(result.text);
+        }
       },
       function (error) {
         alert("Scanning failed: " + error);
@@ -21,9 +26,17 @@ function ScanCtrl() {
   };
 
   self.lookupBarcode = function(barcode) {
-    // Make request to www.ean-search.org here
-    // 'http://www.ean-search.org/perl/ean-search.pl?q=' + barcode
-  }
+    if (window.data[barcode]) {
+      self.result += JSON.stringify(window.data[barcode], null, 2);
+    }
+    else {
+      self.result += 'Barcode not found in database.';
+    }
+  };
+
+  self.clear = function() {
+    self.result = '';
+  };
 }
 
 angular.module('lampTest')
