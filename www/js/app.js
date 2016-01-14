@@ -2,12 +2,18 @@ angular.module('lampTest', ['ionic', 'pascalprecht.translate'])
 
 .config(function($stateProvider, $urlRouterProvider, $translateProvider) {
   $stateProvider
-      .state('scan', {
-        url: '/scan',
-        templateUrl: 'templates/scan.html',
-        controller: 'ScanCtrl',
-        controllerAs: 'scanCtrl'
-      });
+    .state('scan', {
+      url: '/scan',
+      templateUrl: 'templates/scan.html',
+      controller: 'ScanCtrl',
+      controllerAs: 'scanCtrl'
+    })
+    .state('lamp', {
+      url: '/lamp/:upc',
+      templateUrl: 'templates/lamp.html',
+      controller: 'LampCtrl',
+      controllerAs: 'lampCtrl'
+    });
 
   $urlRouterProvider.otherwise('/scan');
 

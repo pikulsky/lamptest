@@ -1,4 +1,4 @@
-function ScanCtrl() {
+function ScanCtrl($state) {
   var self = this;
 
   self.scanBarcode = function() {
@@ -27,7 +27,10 @@ function ScanCtrl() {
 
   self.lookupBarcode = function(barcode) {
     if (window.data[barcode]) {
-      self.result += JSON.stringify(window.data[barcode], null, 2);
+
+      $state.go('lamp', {upc: barcode});
+
+      //self.result += JSON.stringify(window.data[barcode], null, 2);
     }
     else {
       self.result += 'Barcode not found in database.';
