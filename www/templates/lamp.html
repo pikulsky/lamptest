@@ -1,13 +1,41 @@
 <ion-view view-title="Lamp">
     <ion-content class="app-content has-padding">
+        <h1>{{lampCtrl.lamp.brand}} {{lampCtrl.lamp.model}}</h1>
 
-        <h1>Lamp found!</h1>
+        <a class="button button-full button-large button-balanced" href="{{lampCtrl.pageLink}}">{{ 'VIEW_ON_SITE' | translate }}</a>
 
-        <p><a href="{{lampCtrl.pageLink}}">View it</a></p>
+        <div>
+            <img src="{{lampCtrl.lampPhoto}}">
+        </div>
 
-        <p>{{ 'DATA_SOURCE' | translate }} <a href="http://lamptest.ru">Lamptest</a></p>
+        <div>
+            <img src="{{lampCtrl.lampGraph}}">
+        </div>
 
-        <pre>{{scanCtrl.result}}</pre>
 
+        <table>
+            <tr><td class="bold">изготовитель</td><td>{{lampCtrl.lamp.brand}}</td></tr>
+            <tr><td class="bold">модель или артикул</td><td>{{lampCtrl.lamp.model}}</td></tr>
+            <tr><td class="bold">штрих-код</td><td>{{lampCtrl.lamp.upc}}</td></tr>
+            <tr><td class="bold">тип цоколя</td><td>{{lampCtrl.lamp.base_type}}</td></tr>
+            <tr><td class="bold">вид</td><td>{{lampCtrl.lamp.class}}</td></tr>
+            <tr><td class="bold">тип</td><td>{{lampCtrl.lamp.type}}</td></tr>
+            <tr><td class="bold">матовость</td><td>{{lampCtrl.lamp.matte}}</td></tr>
+            <tr><td class="bold">заявленная мощность, Вт</td><td>{{lampCtrl.lamp.P}}</td></tr>
+            <tr><td class="bold">заявленный световой поток, Лм</td><td>{{lampCtrl.lamp.lm}}</td></tr>
+            <tr><td class="bold">заявленный эквивалент, Вт</td><td>{{lampCtrl.lamp.ekv}}</td></tr>
+            <tr><td class="bold">заявленная цветовая температура, К</td><td>{{lampCtrl.lamp.color}}</td></tr>
+            <tr><td class="bold">заявленный срок службы, час</td><td>{{lampCtrl.lamp.age}}</td></tr>
+            <tr><td class="bold">измеренная мощность, Вт</td><td>{{lampCtrl.lamp.measured.P}}</td></tr>
+            <tr><td class="bold">измеренный световой поток, Лм</td><td>{{lampCtrl.lamp.measured.lm}}</td></tr>
+            <tr><td class="bold">эффективность (количество люмен на ватт)</td><td>{{lampCtrl.lamp.effectiveness}}</td></tr>
+            <tr><td class="bold">измеренный эквивалент мощности, Вт</td><td>{{lampCtrl.lamp.measured.ekv}}</td></tr>
+            <tr><td class="bold">измеренная цветовая температура, К</td><td>{{lampCtrl.lamp.measured.color}}</td></tr>
+            <tr><td class="bold">измеренный коэффициент цветового охвата</td><td>{{lampCtrl.lamp.measured.colorRange}}</td></tr>
+            <tr><td class="bold">измеренный угол освещения, град</td><td>{{lampCtrl.lamp.measured.angle}}</td></tr>
+            <tr><td class="bold">измеренный коэффициент пульсации, %</td><td>{{lampCtrl.lamp.measured.pulsation}}</td></tr>
+        </table>
+
+        <div class="data-source">{{ 'DATA_SOURCE' | translate }} <a href="http://lamptest.ru">Lamptest</a></div>
     </ion-content>
 </ion-view>

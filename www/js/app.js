@@ -22,14 +22,18 @@ angular.module('lampTest', ['ionic', 'pascalprecht.translate'])
     SCAN_BARCODE_BTN: 'Scan',
     LOOKUP_BARCODE_BTN: 'Lookup',
     CLEAR_BTN: 'Clear',
-    DATA_SOURCE: 'Data is provided by '
+    DATA_SOURCE: 'Data is provided by ',
+    LAMP_FOUND: 'Lamp found',
+    VIEW_ON_SITE: 'View on site'
   })
   .translations('ru', {
     SCAN_BARCODE_HEADER: 'Отсканируйте штрих-код!',
     SCAN_BARCODE_BTN: 'Сканировать',
     LOOKUP_BARCODE_BTN: 'Искать',
     CLEAR_BTN: 'Очистить',
-    DATA_SOURCE: 'Данные предоставлены сайтом '
+    DATA_SOURCE: 'Данные предоставлены сайтом ',
+    LAMP_FOUND: 'Лампа найдена',
+    VIEW_ON_SITE: 'Посмотреть на сайте'
   });
 
   $translateProvider.preferredLanguage('ru');
