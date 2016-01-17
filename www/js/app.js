@@ -1,12 +1,31 @@
 angular.module('lampTest', ['ionic', 'pascalprecht.translate'])
 
-.config(function($stateProvider, $urlRouterProvider, $translateProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $translateProvider) {
   $stateProvider
-    .state('scan', {
+    .state('tab', {
+      url: '/tab',
+      abstract: true,
+      templateUrl: 'templates/tabs.html'
+    })
+    .state('tab.scan', {
       url: '/scan',
-      templateUrl: 'templates/scan.html',
-      controller: 'ScanCtrl',
-      controllerAs: 'scanCtrl'
+      views: {
+        'scan': {
+          templateUrl: "templates/scan.html",
+          controller: 'ScanCtrl',
+          controllerAs: 'scanCtrl'
+        }
+      }
+    })
+    .state('tab.list', {
+      url: '/list',
+      views: {
+        'list': {
+          templateUrl: "templates/scan.html",
+          controller: 'ScanCtrl',
+          controllerAs: 'scanCtrl'
+        }
+      }
     })
     .state('lamp', {
       url: '/lamp/:upc',
@@ -15,7 +34,9 @@ angular.module('lampTest', ['ionic', 'pascalprecht.translate'])
       controllerAs: 'lampCtrl'
     });
 
-  $urlRouterProvider.otherwise('/scan');
+  $urlRouterProvider.otherwise('/tab/scan');
+
+  $ionicConfigProvider.tabs.position('bottom');
 
   $translateProvider.translations('en', {
     SCAN_BARCODE_HEADER: 'Scan a barcode!',
