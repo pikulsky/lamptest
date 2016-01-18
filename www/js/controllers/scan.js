@@ -16,6 +16,7 @@ function ScanCtrl($state) {
           self.result += 'Cancelled: ' + result.cancelled;
         }
         else if (result.text) {
+          self.result += 'Recognized: ' + result.text;
           self.lookupBarcode(result.text);
         }
       },
