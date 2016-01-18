@@ -25,6 +25,8 @@ function ScanCtrl($state) {
     );
   };
 
+  self.scanBarcode();
+
   self.lookupBarcode = function(barcode) {
     if (window.data[barcode]) {
       $state.go('lamp', {upc: barcode});
@@ -32,10 +34,6 @@ function ScanCtrl($state) {
     else {
       self.result += 'Barcode not found in database.';
     }
-  };
-
-  self.clear = function() {
-    self.result = '';
   };
 }
 

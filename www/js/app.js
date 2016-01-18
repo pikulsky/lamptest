@@ -9,6 +9,7 @@ angular.module('lampTest', ['ionic', 'pascalprecht.translate'])
     })
     .state('tab.scan', {
       url: '/scan',
+      cache: false,
       views: {
         'scan': {
           templateUrl: "templates/scan.html",
