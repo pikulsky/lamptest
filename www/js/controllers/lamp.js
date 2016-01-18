@@ -15,8 +15,6 @@ function LampCtrl($stateParams) {
 
     self.lamp.matte = lamp.matte ? 'матовая' : 'нет';
     self.lamp.effectiveness = (lamp.realLm / lamp.realP).toFixed(2);
-
-    console.log(lamp);
   }
 }
 
