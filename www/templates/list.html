@@ -1,0 +1,12 @@
+<ion-view view-title="List">
+    <ion-content class="app-content has-padding">
+
+        <div class="lamp"
+             ng-repeat="lamp in listCtrl.lamps track by lamp.upc"
+             ng-click="listCtrl.lampClicked(lamp.upc)"
+        >
+            {{lamp.title}}
+        </div>
+
+    </ion-content>
+</ion-view>

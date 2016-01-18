@@ -11,8 +11,8 @@ angular.module('lampTest', ['ionic', 'pascalprecht.translate'])
       url: '/scan',
       cache: false,
       views: {
-        'scan': {
-          templateUrl: "templates/scan.html",
+        scan: {
+          templateUrl: 'templates/scan.html',
           controller: 'ScanCtrl',
           controllerAs: 'scanCtrl'
         }
@@ -21,18 +21,22 @@ angular.module('lampTest', ['ionic', 'pascalprecht.translate'])
     .state('tab.list', {
       url: '/list',
       views: {
-        'list': {
-          templateUrl: "templates/scan.html",
-          controller: 'ScanCtrl',
-          controllerAs: 'scanCtrl'
+        list: {
+          templateUrl: 'templates/list.html',
+          controller: 'ListCtrl',
+          controllerAs: 'listCtrl'
         }
       }
     })
-    .state('lamp', {
+    .state('tab.lamp', {
       url: '/lamp/:upc',
-      templateUrl: 'templates/lamp.html',
-      controller: 'LampCtrl',
-      controllerAs: 'lampCtrl'
+      views: {
+        list: {
+          templateUrl: 'templates/lamp.html',
+          controller: 'LampCtrl',
+          controllerAs: 'lampCtrl'
+        }
+      }
     });
 
   $urlRouterProvider.otherwise('/tab/scan');

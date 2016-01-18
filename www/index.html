@@ -17,15 +17,18 @@
     <script src="js/data.js"></script>
     <script src="js/controllers/scan.js"></script>
     <script src="js/controllers/lamp.js"></script>
+    <script src="js/controllers/list.js"></script>
   </head>
 
   <body ng-app="lampTest">
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">LampTest</h1>
-      </ion-header-bar>
+  <ion-pane>
+    <ion-nav-bar class="nav-bar">
+      <ion-nav-back-button class="button-clear">
+        <i class="ion-chevron-left"></i>
+      </ion-nav-back-button>
+    </ion-nav-bar>
 
-      <ion-nav-view></ion-nav-view>
-    </ion-pane>
+    <ion-nav-view></ion-nav-view>
+  </ion-pane>
   </body>
 </html>
