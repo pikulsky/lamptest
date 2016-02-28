@@ -3,11 +3,15 @@
   "version": "0.0.1",
   "description": "LampTest: application to get lamp statistics by lamp barcode.",
   "devDependencies": {
+    "connect-livereload": "0.5.4",
+    "del": "^2.1.0",
+    "express": "4.13.3",
     "gulp": "^3.9.0",
     "gulp-hockeyapp": "^0.2.3",
+    "gulp-livereload": "^3.8.1",
     "gulp-phonegap-build": "^0.1.4",
+    "gulp-sequence": "0.4.4",
     "gulp-util": "^2.2.14",
-    "del": "^2.1.0",
     "merge-stream": "^1.0.0"
   },
   "cordovaPlugins": [
