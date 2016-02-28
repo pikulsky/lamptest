@@ -1,5 +1,15 @@
-function ScanCtrl($state) {
+function ScanCtrl($log, $state) {
   var self = this;
+
+  self.lookupBarcode = function(barcode) {
+    if (window.data[barcode]) {
+      $log.info('Barcode lookup successful, data was found');
+      $state.go('lamp', {upc: barcode});
+    }
+    else {
+      self.result += 'Barcode not found in database.';
+    }
+  };
 
   self.scanBarcode = function() {
     if (!window.cordova || !window.cordova.plugins || !window.cordova.plugins.barcodeScanner) {
@@ -10,32 +20,20 @@ function ScanCtrl($state) {
     window.cordova.plugins.barcodeScanner.scan(
       function (result) {
 
-        self.result += JSON.stringify(result);
+        $log.debug('Scanner result: ' + angular.toJson(result));
 
-        if (result.cancelled) {
-          self.result += 'Cancelled: ' + result.cancelled;
-        }
-        else if (result.text) {
-          self.result += 'Recognized: ' + result.text;
+        if (result.text && !result.cancelled) {
+          $log.info('Recognized data: ' + result.text);
           self.lookupBarcode(result.text);
         }
       },
       function (error) {
-        alert("Scanning failed: " + error);
+        $log.error('Scanner failed: ' + angular.toJson(error));
       }
     );
   };
 
   self.scanBarcode();
-
-  self.lookupBarcode = function(barcode) {
-    if (window.data[barcode]) {
-      $state.go('lamp', {upc: barcode});
-    }
-    else {
-      self.result += 'Barcode not found in database.';
-    }
-  };
 }
 
 angular.module('lampTest')
