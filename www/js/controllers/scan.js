@@ -1,5 +1,7 @@
-function ScanCtrl($log, $state, ionicToast) {
+function ScanCtrl($log, $state, $translate, ionicToast) {
   var self = this;
+
+  var strBarcodeNotFound, strBarcodeScannerNotSupported;
 
   self.lookupBarcode = function(barcode) {
     if (window.data[barcode]) {
@@ -7,13 +9,13 @@ function ScanCtrl($log, $state, ionicToast) {
       $state.go('lamp', {upc: barcode});
     }
     else {
-      ionicToast.show('Barcode not found in database.', 'middle', false, 1000);
+      ionicToast.show(strBarcodeNotFound, 'middle', false, 1500);
     }
   };
 
   self.scanBarcode = function() {
     if (!window.cordova || !window.cordova.plugins || !window.cordova.plugins.barcodeScanner) {
-      ionicToast.show('Barcode not found in database.', 'middle', false, 1000);
+      ionicToast.show(strBarcodeScannerNotSupported, 'middle', false, 2000);
       return;
     }
 
@@ -33,7 +35,17 @@ function ScanCtrl($log, $state, ionicToast) {
     );
   };
 
-  self.scanBarcode();
+  $translate('BARCODE_NOT_FOUND')
+    .then(function (str) {
+      strBarcodeNotFound = str;
+      return $translate('BARCODE_SCANNER_NOT_SUPPORTED');
+    })
+    .then(function (str) {
+      strBarcodeScannerNotSupported = str;
+    })
+    .then(function () {
+      self.scanBarcode();
+    });
 }
 
 angular.module('lampTest')

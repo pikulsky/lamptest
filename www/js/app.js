@@ -50,7 +50,9 @@ angular.module('lampTest', ['ionic', 'ionic-toast', 'pascalprecht.translate'])
     CLEAR_BTN: 'Clear',
     DATA_SOURCE: 'Data is provided by ',
     LAMP_FOUND: 'Lamp found',
-    VIEW_ON_SITE: 'View on site'
+    VIEW_ON_SITE: 'View on site',
+    BARCODE_NOT_FOUND: 'Barcode not found',
+    BARCODE_SCANNER_NOT_SUPPORTED: 'Barcode scanner not supported on this platform'
   })
   .translations('ru', {
     SCAN_BARCODE_HEADER: 'Отсканируйте штрих-код!',
@@ -59,7 +61,9 @@ angular.module('lampTest', ['ionic', 'ionic-toast', 'pascalprecht.translate'])
     CLEAR_BTN: 'Очистить',
     DATA_SOURCE: 'Данные предоставлены сайтом ',
     LAMP_FOUND: 'Лампа найдена',
-    VIEW_ON_SITE: 'Посмотреть на сайте'
+    VIEW_ON_SITE: 'Посмотреть на сайте',
+    BARCODE_NOT_FOUND: 'Штрихкод не найден',
+    BARCODE_SCANNER_NOT_SUPPORTED: 'Сканер штрихкодов на данной платформе не поддерживается'
   });
 
   $translateProvider.preferredLanguage('ru');
