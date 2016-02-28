@@ -69,7 +69,7 @@ gulp.task('phonegap-build-android', ['assemble-assets'], function(done) {
       user: config.phonegapBuild.user,
       keys: config.phonegapBuild.keys,
       download: {
-        android: 'build/android.apk'
+        android: 'build/com.pcholnick.lamptest.apk'
       }
     }))
     .on('pg-error', function(err) {
