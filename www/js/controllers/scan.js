@@ -43,7 +43,7 @@ function ScanCtrl($log, $state, $translate, ionicToast) {
     .then(function (str) {
       strBarcodeScannerNotSupported = str;
     })
-    .then(function () {
+    .then(function (str) {
       self.scanBarcode();
     });
 }

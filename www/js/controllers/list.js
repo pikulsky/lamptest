@@ -17,7 +17,7 @@ function ListCtrl($state) {
 
   self.lampClicked = function(upc) {
     return $state.go('tab.lamp', {upc: upc});
-  }
+  };
 }
 
 angular.module('lampTest')
