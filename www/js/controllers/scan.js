@@ -6,7 +6,7 @@ function ScanCtrl($log, $state, $translate, ionicToast) {
   self.lookupBarcode = function(barcode) {
     if (window.data[barcode]) {
       $log.info('Barcode lookup successful, data was found');
-      $state.go('lamp', {upc: barcode});
+      $state.go('tab.lamp', {upc: barcode});
     }
     else {
       ionicToast.show(strBarcodeNotFound, 'middle', false, 1500);
