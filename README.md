@@ -10,6 +10,7 @@ Build
 
 ```
 npm install
+bower install
 gulp
 ```
 

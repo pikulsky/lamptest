@@ -1,4 +1,4 @@
-function ScanCtrl($log, $state) {
+function ScanCtrl($log, $state, ionicToast) {
   var self = this;
 
   self.lookupBarcode = function(barcode) {
@@ -7,13 +7,13 @@ function ScanCtrl($log, $state) {
       $state.go('lamp', {upc: barcode});
     }
     else {
-      self.result += 'Barcode not found in database.';
+      ionicToast.show('Barcode not found in database.', 'middle', false, 1000);
     }
   };
 
   self.scanBarcode = function() {
     if (!window.cordova || !window.cordova.plugins || !window.cordova.plugins.barcodeScanner) {
-      alert('Barcode scanner not available');
+      ionicToast.show('Barcode not found in database.', 'middle', false, 1000);
       return;
     }
 

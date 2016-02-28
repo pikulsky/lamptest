@@ -7,3 +7,4 @@ plugins/
 .idea/
 build/
 gulp.config.local.js
+www/lib/*
