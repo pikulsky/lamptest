@@ -2,9 +2,9 @@
 <?php
 
 $raw_data = file_get_contents('led.csv');
-$utf8_data = iconv('windows-1251', 'utf-8', $raw_data);  
-$handle = fopen('php://memory', 'rw'); 
-fwrite($handle, $utf8_data); 
+$utf8_data = iconv('windows-1251', 'utf-8', $raw_data);
+$handle = fopen('php://memory', 'rw');
+fwrite($handle, $utf8_data);
 fseek($handle, 0);
 
 $json = [];
@@ -59,4 +59,4 @@ fclose($handle);
 
 $encoded = json_encode($json);
 
-print($encoded);
+print('var data = ' . $encoded . ';');
