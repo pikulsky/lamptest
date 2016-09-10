@@ -4,6 +4,7 @@
     .controller('ScanCtrl', ScanCtrl);
 
   /**
+   * @ngdoc function
    * @param $log
    * @param $state
    * @param $translate
