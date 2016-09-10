@@ -1,4 +1,4 @@
-(function () {
+(function (angular) {
 
   angular.module('lampTest')
     .controller('ListCtrl', ListCtrl);
@@ -38,4 +38,4 @@
     };
   }
 
-}());
+}(angular));

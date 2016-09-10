@@ -1,22 +1,32 @@
-function LampCtrl($stateParams) {
-  var self = this;
+(function (angular) {
 
-  if ($stateParams.upc && window.data && window.data[$stateParams.upc]) {
-    var lamp = window.data[$stateParams.upc];
+  angular.module('lampTest')
+    .controller('LampCtrl', LampCtrl);
 
-    var normalizedBrand = lamp.brand.toLowerCase().replace(/[\s\/]+/g, '-').replace(/[^A-Za-z0-9\-]/g, '');
-    var normalizedModel = lamp.model.toLowerCase().replace(/[\s\/]+/g, '-').replace(/[^A-Za-z0-9\-]/g, '');
 
-    self.pageLink = 'http://lamptest.ru/review/' + normalizedBrand + '-' + normalizedModel;
-    self.lampPhoto = 'http://lamptest.ru/images/photo/' + normalizedBrand + '-' + normalizedModel + '.jpg';
-    self.lampGraph = 'http://lamptest.ru/images/graph/' + normalizedBrand + '-' + normalizedModel + '.png';
+  /**
+   * @ngdoc function
+   * @param {Object} $stateParams
+   * @constructor
+   */
+  function LampCtrl($stateParams) {
+    var self = this;
 
-    self.lamp = lamp;
+    if ($stateParams.upc && window.data && window.data[$stateParams.upc]) {
+      var lamp = window.data[$stateParams.upc];
 
-    self.lamp.matte = lamp.matte ? 'матовая' : 'нет';
-    self.lamp.effectiveness = (lamp.realLm / lamp.realP).toFixed(2);
+      var normalizedBrand = lamp.brand.toLowerCase().replace(/[\s\/]+/g, '-').replace(/[^A-Za-z0-9\-]/g, '');
+      var normalizedModel = lamp.model.toLowerCase().replace(/[\s\/]+/g, '-').replace(/[^A-Za-z0-9\-]/g, '');
+
+      self.pageLink = 'http://lamptest.ru/review/' + normalizedBrand + '-' + normalizedModel;
+      self.lampPhoto = 'http://lamptest.ru/images/photo/' + normalizedBrand + '-' + normalizedModel + '.jpg';
+      self.lampGraph = 'http://lamptest.ru/images/graph/' + normalizedBrand + '-' + normalizedModel + '.png';
+
+      self.lamp = lamp;
+
+      self.lamp.matte = lamp.matte ? 'матовая' : 'нет';
+      self.lamp.effectiveness = (lamp.realLm / lamp.realP).toFixed(2);
+    }
   }
-}
 
-angular.module('lampTest')
-  .controller('LampCtrl', LampCtrl);
+}(angular));
