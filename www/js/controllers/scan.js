@@ -11,7 +11,7 @@
    * @param ionicToast
    * @constructor
    */
-  function ScanCtrl($log, $state, $translate, $ionicLoading, $ionicPlatform, ionicToast) {
+  function ScanCtrl($log, $state, $translate, $ionicLoading, ionicToast) {
 
     var self = this;
 
@@ -36,7 +36,7 @@
       else {
         ionicToast.show(strBarcodeNotFound, 'middle', false, 1500);
       }
-    };
+    }
 
     /**
      * @ngdoc method
@@ -57,14 +57,19 @@
 
           if (result.text && !result.cancelled) {
             $log.info('Recognized data: ' + result.text);
-            self.lookupBarcode(result.text);
+            return self.lookupBarcode(result.text);
+          }
+
+          if (result.cancelled) {
+            $state.go('tab.list');
           }
         },
         function (error) {
           $log.error('Scanner failed: ' + angular.toJson(error));
+          $state.go('tab.list');
         }
       );
-    };
+    }
 
     $translate('BARCODE_INITIALIZING')
       .then(function (labelBarcodeInitializing) {
