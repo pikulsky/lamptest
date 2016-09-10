@@ -32,8 +32,10 @@
       if (window.data[barcode]) {
         $log.info('Barcode lookup successful, data was found');
         $state.go('tab.lamp', {upc: barcode});
+        $ionicLoading.hide();
       }
       else {
+        $ionicLoading.hide();
         ionicToast.show(strBarcodeNotFound, 'middle', false, 1500);
       }
     }
@@ -50,6 +52,8 @@
         return;
       }
 
+      $ionicLoading.show();
+
       window.cordova.plugins.barcodeScanner.scan(
         function (result) {
 
@@ -61,10 +65,12 @@
           }
 
           if (result.cancelled) {
+            $ionicLoading.hide();
             $state.go('tab.list');
           }
         },
         function (error) {
+          $ionicLoading.hide();
           $log.error('Scanner failed: ' + angular.toJson(error));
           $state.go('tab.list');
         }
