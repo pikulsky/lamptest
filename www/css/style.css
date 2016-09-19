@@ -43,3 +43,8 @@ img {
   font-size: 0.9em;
   padding-top: 10px;
 }
+
+ul.rating li i {
+  font-size: 3.5em;
+  color: #FFB602;
+}

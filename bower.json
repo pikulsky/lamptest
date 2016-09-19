@@ -3,7 +3,8 @@
   "private": "true",
   "dependencies": {
     "angular-translate": "#master",
-    "ionic-toast": "~0.2.0"
+    "ionic-toast": "~0.2.0",
+    "ionic-rating": "~0.3.0"
   },
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.1.1"

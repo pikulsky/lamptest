@@ -1,4 +1,4 @@
-angular.module('lampTest', ['ionic', 'ionic-toast', 'pascalprecht.translate'])
+angular.module('lampTest', ['ionic', 'ionic-toast', 'pascalprecht.translate', 'ionic.rating'])
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $translateProvider) {
   $stateProvider
