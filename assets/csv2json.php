@@ -40,17 +40,23 @@ while (($data = fgetcsv($handle, 0, ';')) !== FALSE) {
       'lm' => $data[17],
       'ekv' => $data[18],
       'color' => $data[19],
-      'age' => $data[20],
-      'p' => $data[21],
+      'cri' => $data[20],
+      'age' => $data[21],
+      'p' => $data[22],
+      'dimmer_support' => $data[24],
+      'switch_indicator_support' => $data[25],
       'measured' => [
-        'P' => $data[22],
-        'lm' => $data[23],
-        'ekv' => $data[24],
-        'color' => $data[25],
-        'colorRange' => $data[26],
-        'angle' => $data[27],
-        'pulsation' => $data[28],
+        'P' => $data[26],
+        'lm' => $data[27],
+        'ekv' => $data[28],
+        'color' => $data[29],
+        'colorRange' => $data[30],
+        'angle' => $data[32],
+        'pulsation' => $data[33],
       ],
+      'test_date' => $data[35],
+      'rating' => $data[36],
+      'relevant' => $data[39]
     ];
   }
 }

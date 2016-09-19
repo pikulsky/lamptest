@@ -31,6 +31,10 @@ img {
   padding-right: 10px;
 }
 
+.lamp-details table {
+  width: 100%;
+}
+
 .lamp-details tr.even {
   background-color: aliceblue;
 }
