@@ -15,3 +15,11 @@ gulp
 ```
 
 Application building process depends on build.phonegap.com service, so existing build.phonegap.com service account is required.
+
+TODO
+----
+* Add support for other lamp types (CFL and incandescent, see 0043168179386 and 4895041412655)
+* Search by name on lamps list screen
+* Alphabetic sort on lamps list
+* Bug: not possible to press Scan again after lamp was not found
+* Add Help screen with information about the app and what it does
