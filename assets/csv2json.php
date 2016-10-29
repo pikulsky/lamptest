@@ -63,6 +63,13 @@ while (($data = fgetcsv($handle, 0, ';')) !== FALSE) {
 
 fclose($handle);
 
+// Order by brand and model in alphabetical order
+$ordered_json = [];
+function lampComparison($a, $b) {
+    return strcmp($a['brand'] . $a['model'], $b['brand'] . $b['model']);
+}
+usort($json, 'lampComparison');
+
 $encoded = json_encode($json);
 
 print('var data = ' . $encoded . ';');
