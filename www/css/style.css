@@ -57,3 +57,18 @@ ul.rating li i {
 .has-searchbar {
     margin-top: 42px;
 }
+
+.about-page {
+    padding: 10px;
+    text-align: justify;
+}
+
+.about-page p,
+.about-page ul {
+    margin-bottom: 1em;
+}
+
+.about-page li {
+    list-style-type: disc;
+    margin-left: 20px;
+}

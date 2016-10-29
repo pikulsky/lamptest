@@ -37,6 +37,14 @@ angular.module('lampTest', ['ionic', 'ionic-toast', 'pascalprecht.translate', 'i
           controllerAs: 'lampCtrl'
         }
       }
+    })
+    .state('tab.about', {
+      url: '/about',
+      views: {
+        about: {
+          templateUrl: 'templates/about.html'
+        }
+      }
     });
 
   $urlRouterProvider.otherwise('/tab/list');
