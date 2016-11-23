@@ -8,7 +8,7 @@
    * @param {Object} $state
    * @constructor
    */
-  function ListCtrl($state, $timeout) {
+  function ListCtrl($state, $timeout, $ionicScrollDelegate) {
     var self = this;
 
     self.lampClicked = lampClicked;
@@ -39,6 +39,8 @@
             }
           }
 
+          var originalListLength = self.lamps.length;
+
           if (keyword) {
             var normalizedKeyword = keyword.toLowerCase();
             self.lamps = self.lamps.filter(function (lamp) {
@@ -47,6 +49,10 @@
               }
               return false;
             });
+          }
+
+          if (originalListLength != self.lamps.length) {
+            $ionicScrollDelegate.scrollTop();
           }
         }
       }, 1);
