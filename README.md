@@ -22,3 +22,4 @@ TODO
 * Bug: not possible to press Scan again after lamp was not found
 * Bug: Broken "Экотон" entry
 * Bug: No images for lamps with Russian words in its model name
+* Add filter by base type (E14, E27)
