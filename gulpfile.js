@@ -140,6 +140,20 @@ gulp.task('update-db', function (done) {
         });
       }
 
+      lampsJson = lampsJson.sort(function (a, b) {
+        var first = a.brand.toUpperCase() + a.model.toUpperCase();
+        var second = b.brand.toUpperCase() + b.model.toUpperCase();
+        if (first < second) {
+          return -1;
+        }
+
+        if (first > second) {
+          return 1;
+        }
+
+        return 0;
+      });
+
       fs.writeFile('./www/js/data.js', 'var data = ' + JSON.stringify(lampsJson) + ';', function(err) {
         if(err) {
           return console.log(err);
