@@ -27,24 +27,48 @@ img {
 }
 
 .lamp-details {
-  padding-left: 10px;
-  padding-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .lamp-details table {
-  width: 100%;
+    width: 100%;
 }
 
 .lamp-details tr.even {
-  background-color: aliceblue;
+    background-color: aliceblue;
 }
 
 .lamp-details .data-source {
-  font-size: 0.9em;
-  padding-top: 10px;
+    font-size: 0.9em;
+    padding-top: 10px;
 }
 
 ul.rating li i {
-  font-size: 3.5em;
-  color: #FFB602;
+    font-size: 3.5em;
+    color: #FFB602;
+}
+
+.bar-search {
+    position: absolute;
+    top: 44px;
+}
+
+.has-searchbar {
+    margin-top: 42px;
+}
+
+.about-page {
+    padding: 10px;
+    text-align: justify;
+}
+
+.about-page p,
+.about-page ul {
+    margin-bottom: 1em;
+}
+
+.about-page li {
+    list-style-type: disc;
+    margin-left: 20px;
 }
