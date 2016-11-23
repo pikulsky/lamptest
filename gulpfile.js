@@ -94,12 +94,12 @@ gulp.task('update-db', function (done) {
     response.on('end', function () {
       var csv = iconv.decode(Buffer.concat(chunks), 'win1251');
       var lines = csv.match(/[^\r\n]+/g);
-      var lampsJson = [];
+      var lampsArray = [];
 
       for (var i = 1; i < lines.length; i++) {
         var values = lines[i].split(';');
 
-        lampsJson.push({
+        lampsArray.push({
           id: values[0],
           brand: values[1],
           model: values[2],
@@ -140,7 +140,7 @@ gulp.task('update-db', function (done) {
         });
       }
 
-      lampsJson = lampsJson.sort(function (a, b) {
+      lampsArray = lampsArray.sort(function (a, b) {
         var first = a.brand.toUpperCase() + a.model.toUpperCase();
         var second = b.brand.toUpperCase() + b.model.toUpperCase();
         if (first < second) {
@@ -153,6 +153,12 @@ gulp.task('update-db', function (done) {
 
         return 0;
       });
+
+      var lampsJson = {};
+      for (var i = 1; i < lampsArray.length; i++) {
+        var upc = lampsArray[i].upc;
+        lampsJson[upc] = lampsArray[i];
+      }
 
       fs.writeFile('./www/js/data.js', 'var data = ' + JSON.stringify(lampsJson) + ';', function(err) {
         if(err) {
