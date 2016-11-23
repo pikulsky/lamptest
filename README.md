@@ -20,3 +20,5 @@ TODO
 ----
 * Add support for other lamp types (CFL and incandescent, see 0043168179386 and 4895041412655)
 * Bug: not possible to press Scan again after lamp was not found
+* Bug: Broken "Экотон" entry
+* Bug: No images for lamps with Russian words in its model name
