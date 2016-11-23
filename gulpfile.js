@@ -8,6 +8,9 @@ var merge = require('merge-stream');
 var process = require('process');
 var express = require('express');
 var connectLr = require('connect-livereload');
+var http = require('http');
+var fs = require('fs');
+var iconv = require('iconv-lite');
 
 var config = require('./gulp.config.local.js');
 
@@ -79,4 +82,71 @@ gulp.task('phonegap-build-android', ['assemble-assets'], function(done) {
     .on('pg-sent', function() {
       done();
     });
+});
+
+gulp.task('update-db', function (done) {
+  // Download lamps CSV file
+  http.get('http://lamptest.ru/led.csv', function(response) {
+    var chunks = [];
+    response.on('data', function (chunk) {
+      chunks.push(chunk);
+    });
+    response.on('end', function () {
+      var csv = iconv.decode(Buffer.concat(chunks), 'win1251');
+      var lines = csv.match(/[^\r\n]+/g);
+      var lampsJson = [];
+
+      for (var i = 1; i < lines.length; i++) {
+        var values = lines[i].split(';');
+
+        lampsJson.push({
+          id: values[0],
+          brand: values[1],
+          model: values[2],
+          P: values[3],
+          link: values[4],
+          prop5: values[5],
+          price_rur: values[6],
+          price_usd: values[7],
+          upc: values[8],
+          diameter: values[9],
+          height: values[10],
+          voltage: values[11],
+          base_type: values[12],
+          class: values[13],
+          type: values[14],
+          subtype: values[15],
+          matte: values[16],
+          lm: values[17],
+          ekv: values[18],
+          color: values[19],
+          cri: values[20],
+          age: values[21],
+          p: values[22],
+          dimmer_support: values[24],
+          switch_indicator_support: values[25],
+          measured: {
+            P: values[26],
+            lm: values[27],
+            ekv: values[28],
+            color: values[29],
+            colorRange: values[30],
+            angle: values[32],
+            pulsation: values[33]
+          },
+          test_date: values[35],
+          rating: values[36],
+          relevant: values[39]
+        });
+      }
+
+      fs.writeFile('./www/js/data.js', 'var data = ' + JSON.stringify(lampsJson) + ';', function(err) {
+        if(err) {
+          return console.log(err);
+        }
+
+        done();
+      });
+    });
+  });
 });

@@ -12,6 +12,7 @@
     "gulp-phonegap-build": "^0.1.4",
     "gulp-sequence": "0.4.4",
     "gulp-util": "^2.2.14",
-    "merge-stream": "^1.0.0"
+    "merge-stream": "^1.0.0",
+    "iconv-lite": "^0.4.15"
   }
 }
