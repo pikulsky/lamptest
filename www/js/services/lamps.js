@@ -31,10 +31,14 @@
       if (window.data) {
         for (var upc in window.data) {
           if (window.data.hasOwnProperty(upc)) {
-            list.push({
-              title: window.data[upc].brand + ' ' + window.data[upc].model,
-              upc: upc
-            });
+            var title = window.data[upc].brand + ' ' + window.data[upc].model;
+            if (title) {
+              list.push({
+                title: title,
+                upc: upc,
+                normalizedTitle: title.toLowerCase()
+              });
+            }
           }
         }
       }

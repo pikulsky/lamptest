@@ -34,7 +34,7 @@
         if (keyword) {
           var normalizedKeyword = keyword.toLowerCase();
           self.lamps = self.lamps.filter(function (lamp) {
-            if (lamp.title && lamp.title.toLowerCase().indexOf(normalizedKeyword) === 0) {
+            if (lamp.normalizedTitle.indexOf(normalizedKeyword) === 0) {
               return true;
             }
             return false;
