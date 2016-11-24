@@ -99,6 +99,11 @@ gulp.task('update-db', function (done) {
       for (var i = 1; i < lines.length; i++) {
         var values = lines[i].split(';');
 
+        // Skip lamps without UPC
+        if (!values[8]) {
+          continue;
+        }
+
         lampsArray.push({
           id: values[0],
           brand: values[1],
