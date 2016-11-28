@@ -21,5 +21,4 @@ TODO
 * Add support for other lamp types (CFL and incandescent, see 0043168179386 and 4895041412655)
 * Bug: not possible to press Scan again after lamp was not found
 * Add filter by base type (E14, E27)
-* Bug: "is lamp available" param is not handled correctly in the app
 * Add tooltips for all parameters (some info about the meaning of lamp parameter)

@@ -33,7 +33,7 @@
       self.lamp.price_usd = lamp.price_usd ? lamp.price_usd : 'Н/Д';
       self.lamp.matte = lamp.matte ? 'матовая' : 'нет';
       self.lamp.effectiveness = (lamp.measured.lm / lamp.measured.P).toFixed(1);
-      self.lamp.relevant = lamp.relevant ? 'есть в продаже' : 'не продается';
+      self.lamp.relevant = lamp.relevant && lamp.relevant == 1 ? 'есть в продаже' : 'не продается';
       self.lamp.dimmer_support = lamp.dimmer_support ? 'поддерживается' : 'нет';
 
       var switchIndicatorSupport = 'Н/Д';
