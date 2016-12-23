@@ -19,53 +19,160 @@
 
 
       <table>
-        <tr class="even"><td class="bold">изготовитель</td><td>{{lampCtrl.lamp.brand}}</td></tr>
-        <tr><td class="bold">модель или артикул</td><td>{{lampCtrl.lamp.model}}</td></tr>
+        <tr class="even">
+          <td class="bold">изготовитель</td>
+          <td colspan="2">{{lampCtrl.lamp.brand}}</td>
+        </tr>
 
-        <tr class="even"><td class="bold">штрих-код</td><td>{{lampCtrl.lamp.upc}}</td></tr>
-        <tr><td class="bold">тип цоколя</td><td>{{lampCtrl.lamp.base_type}}</td></tr>
+        <tr>
+          <td class="bold">модель или артикул</td>
+          <td colspan="2">{{lampCtrl.lamp.model}}</td>
+        </tr>
 
-        <tr class="even"><td class="bold">вид</td><td>{{lampCtrl.lamp.class}}</td></tr>
-        <tr><td class="bold">тип</td><td>{{lampCtrl.lamp.type}}</td></tr>
+        <tr class="even">
+          <td class="bold">штрих-код</td>
+          <td colspan="2">{{lampCtrl.lamp.upc}}</td>
+        </tr>
 
-        <tr class="even"><td class="bold">подтип</td><td>{{lampCtrl.lamp.subtype}}</td></tr>
-        <tr><td class="bold">матовость</td><td>{{lampCtrl.lamp.matte}}</td></tr>
+        <tr>
+          <td class="bold">тип цоколя</td>
+          <td colspan="2">{{lampCtrl.lamp.base_type}}</td>
+        </tr>
 
-        <tr class="even"><td class="bold">заявленная мощность, Вт</td><td>{{lampCtrl.lamp.P}}</td></tr>
-        <tr><td class="bold">заявленный световой поток, Лм</td><td>{{lampCtrl.lamp.lm}}</td></tr>
+        <tr class="even">
+          <td class="bold">вид</td>
+          <td colspan="2">{{lampCtrl.lamp.class}}</td>
+        </tr>
 
-        <tr class="even"><td class="bold">заявленный эквивалент, Вт</td><td>{{lampCtrl.lamp.ekv}}</td></tr>
-        <tr><td class="bold">заявленная цветовая температура, К</td><td>{{lampCtrl.lamp.color}}</td></tr>
+        <tr>
+          <td class="bold">тип</td>
+          <td colspan="2">{{lampCtrl.lamp.type}}</td>
+        </tr>
 
-        <tr class="even"><td class="bold">заявленный срок службы, час</td><td>{{lampCtrl.lamp.age}}</td></tr>
-        <tr><td class="bold">измеренная мощность, Вт</td><td>{{lampCtrl.lamp.measured.P}}</td></tr>
+        <tr class="even">
+          <td class="bold">подтип</td>
+          <td colspan="2">{{lampCtrl.lamp.subtype}}</td>
+        </tr>
 
-        <tr class="even"><td class="bold">измеренный световой поток, Лм</td><td>{{lampCtrl.lamp.measured.lm}}</td></tr>
-        <tr><td class="bold">эффективность (количество люмен на ватт)</td><td>{{lampCtrl.lamp.effectiveness}}</td></tr>
+        <tr>
+          <td class="bold">матовость</td>
+          <td colspan="2">{{lampCtrl.lamp.matte}}</td>
+        </tr>
 
-        <tr class="even"><td class="bold">измеренный эквивалент мощности, Вт</td><td>{{lampCtrl.lamp.measured.ekv}}</td></tr>
-        <tr><td class="bold">измеренная цветовая температура, К</td><td>{{lampCtrl.lamp.measured.color}}</td></tr>
+        <tr>
+          <td>Параметры</td>
+          <td>заявленные</td>
+          <td>измеренные</td>
+        </tr>
 
-        <tr class="even"><td class="bold">заявленный CRI, не менее</td><td>{{lampCtrl.lamp.cri}}</td>
-        <tr><td class="bold">измеренный коэффициент цветового охвата</td><td>{{lampCtrl.lamp.measured.colorRange}}</td></tr>
+        <tr class="even">
+          <td class="bold">мощность, Вт</td>
+          <td>{{lampCtrl.lamp.P}}</td>
+          <td>{{lampCtrl.lamp.measured.P}}</td>
+        </tr>
 
-        <tr class="even"><td class="bold">измеренный угол освещения, град</td><td>{{lampCtrl.lamp.measured.angle}}</td></tr>
-        <tr><td class="bold">измеренный коэффициент пульсации, %</td><td>{{lampCtrl.lamp.measured.pulsation}}</td></tr>
+        <tr>
+          <td class="bold">световой поток, Лм</td>
+          <td>{{lampCtrl.lamp.lm}}</td>
+          <td>{{lampCtrl.lamp.measured.lm}}</td>
+        </tr>
 
-        <tr class="even"><td class="bold">работа с выключателем, имеющим индикатор</td><td>{{lampCtrl.lamp.switch_indicator_support}}</td></tr>
-        <tr><td class="bold">диммирование</td><td>{{lampCtrl.lamp.dimmer_support}}</td></tr>
+        <tr class="even">
+          <td class="bold">эквивалент мощности, Вт</td>
+          <td>{{lampCtrl.lamp.ekv}}</td>
+          <td>{{lampCtrl.lamp.measured.ekv}}</td>
+        </tr>
 
-        <tr class="even"><td class="bold">диаметр лампы, мм</td><td>{{lampCtrl.lamp.diameter}}</td></tr>
-        <tr><td class="bold">длина лампы, мм</td><td>{{lampCtrl.lamp.height}}</td></tr>
+        <tr>
+          <td class="bold">цветовая температура, К</td>
+          <td>{{lampCtrl.lamp.color}}</td>
+          <td>{{lampCtrl.lamp.measured.color}}</td>
+        </tr>
 
-        <tr class="even"><td class="bold">рабочее напряжение, В</td><td>{{lampCtrl.lamp.voltage}}</td></tr>
-        <tr><td class="bold">цена в рублях</td><td>{{lampCtrl.lamp.price_rur}}</td></tr>
+        <tr class="even">
+          <td class="bold">заявленный срок службы, час</td>
+          <td>{{lampCtrl.lamp.age}}</td>
+          <td></td>
+        </tr>
 
-        <tr class="even"><td class="bold">цена в долларах</td><td>{{lampCtrl.lamp.price_usd}}</td></tr>
-        <tr><td class="bold">дата тестирования</td><td>{{lampCtrl.lamp.test_date}}</td></tr>
+        <tr>
+          <td class="bold">эффективность (количество люмен на ватт)</td>
+          <td colspan="2">{{lampCtrl.lamp.effectiveness}}</td>
+        </tr>
 
-        <tr class="even"><td class="bold">актуальность лампы</td><td>{{lampCtrl.lamp.relevant}}</td></tr>
-        <tr><td class="bold">рейтинг</td><td>{{lampCtrl.lamp.rating}}</td></tr>
+        <tr class="even">
+          <td class="bold">заявленный CRI, не менее</td>
+          <td>{{lampCtrl.lamp.cri}}</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td class="bold">измеренный коэффициент цветового охвата</td>
+          <td></td>
+          <td>{{lampCtrl.lamp.measured.colorRange}}</td>
+        </tr>
+
+        <tr class="even">
+          <td class="bold">измеренный угол освещения, град</td>
+          <td></td>
+          <td>{{lampCtrl.lamp.measured.angle}}</td>
+        </tr>
+
+        <tr>
+          <td class="bold">измеренный коэффициент пульсации, %</td>
+          <td></td>
+          <td>{{lampCtrl.lamp.measured.pulsation}}</td>
+        </tr>
+
+        <tr class="even">
+          <td class="bold">работа с выключателем, имеющим индикатор</td>
+          <td colspan="2">{{lampCtrl.lamp.switch_indicator_support}}</td>
+        </tr>
+
+        <tr>
+          <td class="bold">диммирование</td>
+          <td colspan="2">{{lampCtrl.lamp.dimmer_support}}</td>
+        </tr>
+
+        <tr class="even">
+          <td class="bold">диаметр лампы, мм</td>
+          <td colspan="2">{{lampCtrl.lamp.diameter}}</td>
+        </tr>
+
+        <tr>
+          <td class="bold">длина лампы, мм</td>
+          <td colspan="2">{{lampCtrl.lamp.height}}</td>
+        </tr>
+
+        <tr class="even">
+          <td class="bold">рабочее напряжение, В</td>
+          <td colspan="2">{{lampCtrl.lamp.voltage}}</td>
+        </tr>
+
+        <tr>
+          <td class="bold">цена в рублях</td>
+          <td colspan="2">{{lampCtrl.lamp.price_rur}}</td>
+        </tr>
+
+        <tr class="even">
+          <td class="bold">цена в долларах</td>
+          <td colspan="2">{{lampCtrl.lamp.price_usd}}</td>
+        </tr>
+
+        <tr>
+          <td class="bold">дата тестирования</td>
+          <td colspan="2">{{lampCtrl.lamp.test_date}}</td>
+        </tr>
+
+        <tr class="even">
+          <td class="bold">актуальность лампы</td>
+          <td colspan="2">{{lampCtrl.lamp.relevant}}</td>
+        </tr>
+
+        <tr>
+          <td class="bold">рейтинг</td>
+          <td colspan="2">{{lampCtrl.lamp.rating}}</td>
+        </tr>
       </table>
 
       <div class="data-source">{{ 'DATA_SOURCE' | translate }} <a href="http://lamptest.ru">Lamptest</a></div>
