@@ -38,7 +38,7 @@
       else {
         $state.go('tab.list');
         $ionicLoading.hide();
-        ionicToast.show(strBarcodeNotFound, 'middle', false, 1500);
+        ionicToast.show(strBarcodeNotFound, 'middle', true, 4000);
       }
     }
 
