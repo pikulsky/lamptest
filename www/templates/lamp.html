@@ -59,7 +59,7 @@
           <td colspan="2">{{lampCtrl.lamp.matte}}</td>
         </tr>
 
-        <tr>
+        <tr class="header">
           <td>Параметры</td>
           <td>заявленные</td>
           <td>измеренные</td>
@@ -68,19 +68,19 @@
         <tr class="even">
           <td class="bold">мощность, Вт</td>
           <td>{{lampCtrl.lamp.P}}</td>
-          <td>{{lampCtrl.lamp.measured.P}}</td>
+          <td ng-class="{better: lampCtrl.measuredBetter.P}">{{lampCtrl.lamp.measured.P}}</td>
         </tr>
 
         <tr>
           <td class="bold">световой поток, Лм</td>
           <td>{{lampCtrl.lamp.lm}}</td>
-          <td>{{lampCtrl.lamp.measured.lm}}</td>
+          <td ng-class="{better: lampCtrl.measuredBetter.lm}">{{lampCtrl.lamp.measured.lm}}</td>
         </tr>
 
         <tr class="even">
           <td class="bold">эквивалент мощности, Вт</td>
           <td>{{lampCtrl.lamp.ekv}}</td>
-          <td>{{lampCtrl.lamp.measured.ekv}}</td>
+          <td ng-class="{better: lampCtrl.measuredBetter.ekv}">{{lampCtrl.lamp.measured.ekv}}</td>
         </tr>
 
         <tr>
@@ -90,38 +90,39 @@
         </tr>
 
         <tr class="even">
+          <td>измеренный коэффициент цветового охвата</td>
+          <td>-</td>
+          <td>{{lampCtrl.lamp.measured.colorRange}}</td>
+        </tr>
+
+        <tr>
+          <td class="bold">измеренный угол освещения, град</td>
+          <td>-</td>
+          <td>{{lampCtrl.lamp.measured.angle}}</td>
+        </tr>
+
+        <tr class="even">
+          <td class="bold">измеренный коэффициент пульсации, %</td>
+          <td>-</td>
+          <td>{{lampCtrl.lamp.measured.pulsation}}</td>
+        </tr>
+
+
+        <tr>
           <td class="bold">заявленный срок службы, час</td>
           <td>{{lampCtrl.lamp.age}}</td>
           <td></td>
         </tr>
 
-        <tr>
+        <tr class="even">
           <td class="bold">эффективность (количество люмен на ватт)</td>
           <td colspan="2">{{lampCtrl.lamp.effectiveness}}</td>
         </tr>
 
-        <tr class="even">
+        <tr>
           <td class="bold">заявленный CRI, не менее</td>
           <td>{{lampCtrl.lamp.cri}}</td>
           <td></td>
-        </tr>
-
-        <tr>
-          <td class="bold">измеренный коэффициент цветового охвата</td>
-          <td></td>
-          <td>{{lampCtrl.lamp.measured.colorRange}}</td>
-        </tr>
-
-        <tr class="even">
-          <td class="bold">измеренный угол освещения, град</td>
-          <td></td>
-          <td>{{lampCtrl.lamp.measured.angle}}</td>
-        </tr>
-
-        <tr>
-          <td class="bold">измеренный коэффициент пульсации, %</td>
-          <td></td>
-          <td>{{lampCtrl.lamp.measured.pulsation}}</td>
         </tr>
 
         <tr class="even">

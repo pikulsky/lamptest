@@ -52,6 +52,17 @@
           break;
       }
       self.lamp.switch_indicator_support = switchIndicatorSupport;
+
+      self.measuredBetter = {};
+      var measuredParams = ['P', 'lm', 'ekv', 'color'];
+      var totalMeasuredParams = measuredParams.length;
+      for (var i = 0; i < totalMeasuredParams; i++) {
+        var key = measuredParams[i];
+        self.measuredBetter[key] = false;
+        if (self.lamp.measured[key] && self.lamp[key] && self.lamp.measured[key] >= self.lamp[key]) {
+          self.measuredBetter[key] = true;
+        }
+      }
     }
 
     function transliterate(str) {
