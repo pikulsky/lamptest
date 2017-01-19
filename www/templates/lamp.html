@@ -1,62 +1,62 @@
 <ion-view view-title="Информация о лампе">
   <ion-content class="app-content has-padding">
-    <h1>{{lampCtrl.lamp.brand}} {{lampCtrl.lamp.model}}</h1>
+    <h1>{{::lampCtrl.lamp.brand}} {{::lampCtrl.lamp.model}}</h1>
 
     <div class="rating-container">
       <rating readOnly="true" ng-model="lampCtrl.lamp.rating" max="5"></rating>
     </div>
 
-    <a class="button button-full button-large button-balanced" href="{{lampCtrl.pageLink}}">{{ 'VIEW_ON_SITE' | translate }}</a>
+    <a class="button button-full button-large button-balanced" href="{{::lampCtrl.pageLink}}">{{ 'VIEW_ON_SITE' | translate }}</a>
 
     <div class="lamp-details">
       <div>
-        <img src="{{lampCtrl.lampPhoto}}">
+        <img src="{{::lampCtrl.lampPhoto}}">
       </div>
 
       <div>
-        <img src="{{lampCtrl.lampGraph}}">
+        <img src="{{::lampCtrl.lampGraph}}">
       </div>
 
 
       <table>
         <tr class="even">
           <td class="bold">изготовитель</td>
-          <td colspan="2">{{lampCtrl.lamp.brand}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.brand}}</td>
         </tr>
 
         <tr>
           <td class="bold">модель или артикул</td>
-          <td colspan="2">{{lampCtrl.lamp.model}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.model}}</td>
         </tr>
 
         <tr class="even">
           <td class="bold">штрих-код</td>
-          <td colspan="2">{{lampCtrl.lamp.upc}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.upc}}</td>
         </tr>
 
         <tr>
           <td class="bold">тип цоколя</td>
-          <td colspan="2">{{lampCtrl.lamp.base_type}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.base_type}}</td>
         </tr>
 
         <tr class="even">
           <td class="bold">вид</td>
-          <td colspan="2">{{lampCtrl.lamp.class}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.class}}</td>
         </tr>
 
         <tr>
           <td class="bold">тип</td>
-          <td colspan="2">{{lampCtrl.lamp.type}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.type}}</td>
         </tr>
 
         <tr class="even">
           <td class="bold">подтип</td>
-          <td colspan="2">{{lampCtrl.lamp.subtype}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.subtype}}</td>
         </tr>
 
         <tr>
           <td class="bold">матовость</td>
-          <td colspan="2">{{lampCtrl.lamp.matte}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.matte}}</td>
         </tr>
 
         <tr class="header">
@@ -67,112 +67,112 @@
 
         <tr class="even">
           <td class="bold">мощность, Вт</td>
-          <td>{{lampCtrl.lamp.P}}</td>
-          <td ng-class="{better: lampCtrl.measuredBetter.P}">{{lampCtrl.lamp.measured.P}}</td>
+          <td>{{::lampCtrl.lamp.P}}</td>
+          <td ng-class="{better: lampCtrl.measuredBetter.P}">{{::lampCtrl.lamp.measured.P}}</td>
         </tr>
 
         <tr>
           <td class="bold">световой поток, Лм</td>
-          <td>{{lampCtrl.lamp.lm}}</td>
-          <td ng-class="{better: lampCtrl.measuredBetter.lm}">{{lampCtrl.lamp.measured.lm}}</td>
+          <td>{{::lampCtrl.lamp.lm}}</td>
+          <td ng-class="{better: lampCtrl.measuredBetter.lm}">{{::lampCtrl.lamp.measured.lm}}</td>
         </tr>
 
         <tr class="even">
           <td class="bold">эквивалент мощности, Вт</td>
-          <td>{{lampCtrl.lamp.ekv}}</td>
-          <td ng-class="{better: lampCtrl.measuredBetter.ekv}">{{lampCtrl.lamp.measured.ekv}}</td>
+          <td>{{::lampCtrl.lamp.ekv}}</td>
+          <td ng-class="{better: lampCtrl.measuredBetter.ekv}">{{::lampCtrl.lamp.measured.ekv}}</td>
         </tr>
 
         <tr>
           <td class="bold">цветовая температура, К</td>
-          <td>{{lampCtrl.lamp.color}}</td>
-          <td>{{lampCtrl.lamp.measured.color}}</td>
+          <td>{{::lampCtrl.lamp.color}}</td>
+          <td>{{::lampCtrl.lamp.measured.color}}</td>
         </tr>
 
         <tr class="even">
           <td>измеренный коэффициент цветового охвата</td>
           <td>-</td>
-          <td>{{lampCtrl.lamp.measured.colorRange}}</td>
+          <td>{{::lampCtrl.lamp.measured.colorRange}}</td>
         </tr>
 
         <tr>
           <td class="bold">измеренный угол освещения, град</td>
           <td>-</td>
-          <td>{{lampCtrl.lamp.measured.angle}}</td>
+          <td>{{::lampCtrl.lamp.measured.angle}}</td>
         </tr>
 
         <tr class="even">
           <td class="bold">измеренный коэффициент пульсации, %</td>
           <td>-</td>
-          <td>{{lampCtrl.lamp.measured.pulsation}}</td>
+          <td>{{::lampCtrl.lamp.measured.pulsation}}</td>
         </tr>
 
 
         <tr>
           <td class="bold">заявленный срок службы, час</td>
-          <td>{{lampCtrl.lamp.age}}</td>
+          <td>{{::lampCtrl.lamp.age}}</td>
           <td></td>
         </tr>
 
         <tr class="even">
           <td class="bold">эффективность (количество люмен на ватт)</td>
-          <td colspan="2">{{lampCtrl.lamp.effectiveness}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.effectiveness}}</td>
         </tr>
 
         <tr>
           <td class="bold">заявленный CRI, не менее</td>
-          <td>{{lampCtrl.lamp.cri}}</td>
+          <td>{{::lampCtrl.lamp.cri}}</td>
           <td></td>
         </tr>
 
         <tr class="even">
           <td class="bold">работа с выключателем, имеющим индикатор</td>
-          <td colspan="2">{{lampCtrl.lamp.switch_indicator_support}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.switch_indicator_support}}</td>
         </tr>
 
         <tr>
           <td class="bold">диммирование</td>
-          <td colspan="2">{{lampCtrl.lamp.dimmer_support}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.dimmer_support}}</td>
         </tr>
 
         <tr class="even">
           <td class="bold">диаметр лампы, мм</td>
-          <td colspan="2">{{lampCtrl.lamp.diameter}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.diameter}}</td>
         </tr>
 
         <tr>
           <td class="bold">длина лампы, мм</td>
-          <td colspan="2">{{lampCtrl.lamp.height}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.height}}</td>
         </tr>
 
         <tr class="even">
           <td class="bold">рабочее напряжение, В</td>
-          <td colspan="2">{{lampCtrl.lamp.voltage}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.voltage}}</td>
         </tr>
 
         <tr>
           <td class="bold">цена в рублях</td>
-          <td colspan="2">{{lampCtrl.lamp.price_rur}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.price_rur}}</td>
         </tr>
 
         <tr class="even">
           <td class="bold">цена в долларах</td>
-          <td colspan="2">{{lampCtrl.lamp.price_usd}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.price_usd}}</td>
         </tr>
 
         <tr>
           <td class="bold">дата тестирования</td>
-          <td colspan="2">{{lampCtrl.lamp.test_date}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.test_date}}</td>
         </tr>
 
         <tr class="even">
           <td class="bold">актуальность лампы</td>
-          <td colspan="2">{{lampCtrl.lamp.relevant}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.relevant}}</td>
         </tr>
 
         <tr>
           <td class="bold">рейтинг</td>
-          <td colspan="2">{{lampCtrl.lamp.rating}}</td>
+          <td colspan="2">{{::lampCtrl.lamp.rating}}</td>
         </tr>
       </table>
 
