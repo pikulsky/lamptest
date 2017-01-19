@@ -15,8 +15,8 @@
     if ($stateParams.upc && window.data && window.data[$stateParams.upc]) {
       var lamp = window.data[$stateParams.upc];
 
-      var normalizedBrand = lamp.brand.toLowerCase().replace(/[\s\/]+/g, '-').replace(/[^A-Za-zА-Яа-я0-9\-\_]/g, '');
-      var normalizedModel = lamp.model.toLowerCase().replace(/[\s\/]+/g, '-').replace(/[^A-Za-zА-Яа-я0-9\-\_]/g, '');
+      var normalizedBrand = lamp.brand.toLowerCase().replace(/[\s\/]+/g, '-').replace(/=/g, '-').replace(/[^A-Za-zА-Яа-я0-9\-\_]/g, '');
+      var normalizedModel = lamp.model.toLowerCase().replace(/[\s\/]+/g, '-').replace(/=/g, '-').replace(/[^A-Za-zА-Яа-я0-9\-\_]/g, '');
 
       normalizedBrand = transliterate(normalizedBrand);
       normalizedModel = transliterate(normalizedModel);
