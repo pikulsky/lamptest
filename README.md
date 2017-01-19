@@ -22,7 +22,6 @@ TODO
 * Bug: not possible to press Scan again after lamp was not found
 * Add filter by base type (E14, E27)
 * Add tooltips for all parameters (some info about the meaning of lamp parameter)
-* Show declared & measured lamp parameters in 2 columns to make comparing easier
 * Add lamp rating to the list, near the lamp title.
 * List and search are not performant enough.
 * Update lamps dynamically.
