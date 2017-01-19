@@ -42,7 +42,9 @@ angular.module('lampTest', ['ionic', 'ionic-toast', 'pascalprecht.translate', 'i
       url: '/about',
       views: {
         about: {
-          templateUrl: 'templates/about.html'
+          templateUrl: 'templates/about.html',
+          controller: 'AboutCtrl',
+          controllerAs: 'aboutCtrl'
         }
       }
     });
@@ -98,5 +100,7 @@ angular.module('lampTest', ['ionic', 'ionic-toast', 'pascalprecht.translate', 'i
     if (window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+    moment.locale('ru');
   });
 });
