@@ -10,9 +10,9 @@
     </label>
   </div>
 
-  <ion-content class="app-content has-padding has-searchbar" overflow-scroll="true">
+  <ion-content class="app-content has-padding has-searchbar">
     <ion-list>
-      <ion-item ng-repeat="lamp in listCtrl.lamps track by lamp.upc" ng-click="listCtrl.lampClicked(lamp.upc)">
+      <ion-item collection-repeat="lamp in listCtrl.lamps track by lamp.upc" ng-click="listCtrl.lampClicked(lamp.upc)">
         {{lamp.title}}
       </ion-item>
     </ion-list>
