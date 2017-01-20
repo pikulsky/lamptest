@@ -23,6 +23,5 @@ TODO
 * Add filter by base type (E14, E27)
 * Add tooltips for all parameters (some info about the meaning of lamp parameter)
 * Add lamp rating to the list, near the lamp title.
-* List and search are not performant enough.
 * Update lamps dynamically.
 * Sometimes the lamp is marked as obsolete although it was previously displayed as active, e.g.: X-Flash 42968, 42975
