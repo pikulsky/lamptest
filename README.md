@@ -18,6 +18,7 @@ Application building process depends on build.phonegap.com service, so existing 
 
 TODO
 ----
+* Lamp screen on smaller devices too cluttered.
 * Add support for other lamp types (CFL and incandescent, see 0043168179386 and 4895041412655)
 * Bug: not possible to press Scan again after lamp was not found
 * Add filter by base type (E14, E27)
