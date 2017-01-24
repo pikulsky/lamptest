@@ -87,17 +87,17 @@ gulp.task('phonegap-build-android', ['assemble-assets'], function(done) {
 gulp.task('update-db', function (done) {
   // Download lamps CSV file
   http.get('http://lamptest.ru/led.csv', function(response) {
-    var chunks = [];
+    let chunks = [];
     response.on('data', function (chunk) {
       chunks.push(chunk);
     });
     response.on('end', function () {
-      var csv = iconv.decode(Buffer.concat(chunks), 'win1251');
-      var lines = csv.match(/[^\r\n]+/g);
-      var lampsArray = [];
+      let csv = iconv.decode(Buffer.concat(chunks), 'win1251');
+      let lines = csv.match(/[^\r\n]+/g);
+      let lampsArray = [];
 
-      for (var i = 1; i < lines.length; i++) {
-        var values = lines[i].split(';');
+      for (let i = 1; i < lines.length; i++) {
+        let values = lines[i].split(';');
 
         // Skip lamps without UPC
         if (!values[8]) {
@@ -146,8 +146,8 @@ gulp.task('update-db', function (done) {
       }
 
       lampsArray = lampsArray.sort(function (a, b) {
-        var first = a.brand.toUpperCase() + a.model.toUpperCase();
-        var second = b.brand.toUpperCase() + b.model.toUpperCase();
+        let first = a.brand.toUpperCase() + a.model.toUpperCase();
+        let second = b.brand.toUpperCase() + b.model.toUpperCase();
         if (first < second) {
           return -1;
         }
@@ -159,13 +159,13 @@ gulp.task('update-db', function (done) {
         return 0;
       });
 
-      var lampsJson = {};
-      for (var i = 1; i < lampsArray.length; i++) {
-        var upc = lampsArray[i].upc;
+      let lampsJson = {};
+      for (let i = 1; i < lampsArray.length; i++) {
+        let upc = lampsArray[i].upc;
         lampsJson[upc] = lampsArray[i];
       }
 
-      fs.writeFile('./www/js/data.js', 'var data = ' + JSON.stringify(lampsJson) + ';', function(err) {
+      fs.writeFile('./src/data.js', 'var data = ' + JSON.stringify(lampsJson) + ';', function(err) {
         if(err) {
           return console.log(err);
         }
