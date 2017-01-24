@@ -1,10 +1,20 @@
 # Specifies intentionally untracked files to ignore when using Git
 # http://git-scm.com/docs/gitignore
 
+.idea/
+npm-debug.log*
 node_modules/
+gulp.config.local.js
+.sass-cache/
+.tmp/
+.versions/
+coverage/
+dist/
+tmp/
+temp/
+hooks/
 platforms/
 plugins/
-.idea/
-build/
-gulp.config.local.js
-www/lib/*
+plugins/android.json
+plugins/ios.json
+www/
