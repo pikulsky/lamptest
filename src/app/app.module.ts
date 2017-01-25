@@ -4,13 +4,13 @@ import {LampTest} from './app.component';
 import {AboutPage} from '../pages/about/about';
 import {TabsPage} from '../pages/tabs/tabs';
 import {ScanPage} from "../pages/scan/scan";
-import {LampsPage} from "../pages/lamps/lamps";
+import {ListPage} from "../pages/list/list";
 
 @NgModule({
   declarations: [
     LampTest,
     AboutPage,
-    LampsPage,
+    ListPage,
     ScanPage,
     TabsPage
   ],
@@ -21,7 +21,7 @@ import {LampsPage} from "../pages/lamps/lamps";
   entryComponents: [
     LampTest,
     AboutPage,
-    LampsPage,
+    ListPage,
     ScanPage,
     TabsPage
   ],
