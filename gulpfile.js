@@ -165,7 +165,7 @@ gulp.task('update-db', function (done) {
         lampsJson[upc] = lampsArray[i];
       }
 
-      fs.writeFile('./src/data.js', 'var data = ' + JSON.stringify(lampsJson) + ';', function(err) {
+      fs.writeFile('./src/assets/data.js', 'var data = ' + JSON.stringify(lampsJson) + ';', function(err) {
         if(err) {
           return console.log(err);
         }
