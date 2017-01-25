@@ -2,12 +2,6 @@
   "name": "LampTest",
   "private": "true",
   "dependencies": {
-    "angular-translate": "#master",
-    "ionic-toast": "~0.2.0",
-    "ionic-rating": "~0.3.0",
     "moment": "^2.17.1"
-  },
-  "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.1.1"
   }
 }
