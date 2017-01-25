@@ -7,5 +7,11 @@
 </ion-header>
 
 <ion-content>
-  Список ламп!!
+
+  <ion-list>
+    <button ion-item *ngFor="let lamp of lamps" (click)="lampClicked(lamp.upc)">
+      {{lamp.title}}
+    </button>
+  </ion-list>
+
 </ion-content>
