@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-
 import { NavController } from 'ionic-angular';
-
-declare var data: any;
+import {LampPage} from '../lamp/lamp';
+import {LampData} from "../../providers/lamp-data";
 
 @Component({
   selector: 'page-list',
@@ -11,24 +10,12 @@ declare var data: any;
 export class ListPage {
   lamps: any[] = [];
 
-  constructor(public navCtrl: NavController) {
-
-    for (let upc in data) {
-      if (data.hasOwnProperty(upc)) {
-        let title = data[upc].brand + ' ' + data[upc].model;
-        if (title) {
-          this.lamps.push({
-            title: title,
-            upc: upc,
-            normalizedTitle: title.toLowerCase()
-          });
-        }
-      }
-    }
+  constructor(public navCtrl: NavController, public lampData: LampData) {
+    this.lamps = lampData.getList();
   }
 
   lampClicked(upc: string) {
-    console.log(upc);
+    this.navCtrl.push(LampPage, {upc: upc});
   }
 
 }
