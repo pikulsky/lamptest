@@ -2,27 +2,31 @@ page-lamp {
   .lamp-details {
     padding-left: 10px;
     padding-right: 10px;
-  }
 
-  .lamp-details table {
-    width: 100%;
-  }
+    .data-source {
+      font-size: 0.9em;
+      padding-top: 10px;
+    }
 
-  .lamp-details tr.even {
-    background-color: aliceblue;
-  }
+    table {
+      width: 100%;
 
-  .lamp-details tr.header {
-    font-weight: bold;
-    background-color: #FFD95D;
-  }
+      tr.even {
+        background-color: aliceblue;
+      }
 
-  .lamp-details td.better {
-    color: green;
-  }
+      tr.header {
+        font-weight: bold;
+        background-color: #FFD95D;
+      }
 
-  .lamp-details .data-source {
-    font-size: 0.9em;
-    padding-top: 10px;
+      td {
+        padding: 4px;
+      }
+
+      td.better {
+        color: green;
+      }
+    }
   }
 }

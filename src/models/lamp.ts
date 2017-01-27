@@ -3,9 +3,6 @@ export class Lamp {
   private normalizedBrand: string;
   private normalizedModel: string;
 
-  public params: any = {};
-  public measuredBetter: any = {};
-
   public brand: string;
   public model: string;
   public upc: string;
@@ -33,7 +30,7 @@ export class Lamp {
   public rating: string;
 
   public measured: any = {};
-
+  public measuredBetter: any = {};
 
   public externalPageLink: string;
   public lampPhoto: string;
@@ -65,14 +62,19 @@ export class Lamp {
     this.type = options.type;
     this.subtype = options.subtype ? options.subtype : 'Н/Д';
     this.matte = options.matte;
-
-    this.params.cri = this.params.cri ? this.params.cri : 'Н/Д';
-    this.params.price_rur = this.params.price_rur ? this.params.price_rur : 'Н/Д';
-    this.params.price_usd = this.params.price_usd ? this.params.price_usd : 'Н/Д';
-    this.params.matte = this.params.matte ? 'матовая' : 'нет';
-    this.params.effectiveness = (this.params.measured.lm / this.params.measured.P).toFixed(1);
-    this.params.relevant = this.params.relevant && this.params.relevant == 1 ? 'есть в продаже' : 'не продается';
-    this.params.dimmer_support = this.params.dimmer_support ? 'поддерживается' : 'нет';
+    this.cri = options.cri ? options.cri : 'Н/Д';
+    this.age = options.age;
+    this.priceRur = options.price_rur ? options.price_rur : null;
+    this.priceUsd = options.price_usd ? options.price_usd : null;
+    this.matte = options.matte ? 'матовая' : 'нет';
+    this.effectiveness = (options.measured.lm / options.measured.P).toFixed(1);
+    this.relevant = options.relevant && options.relevant == 1 ? 'есть в продаже' : 'не продается';
+    this.dimmerSupport = options.dimmer_support ? 'поддерживается' : 'нет';
+    this.diameter = options.diameter;
+    this.height = options.height;
+    this.voltage = options.voltage;
+    this.testDate = options.test_date;
+    this.rating = options.rating;
 
     this.switchIndicatorSupport = 'Н/Д';
     switch (parseInt(options.switch_indicator_support)) {
@@ -90,12 +92,14 @@ export class Lamp {
         break;
     }
 
+    this.measured = options.measured;
+
     let measuredParams = ['P', 'lm', 'ekv', 'color'];
     let totalMeasuredParams = measuredParams.length;
     for (let i = 0; i < totalMeasuredParams; i++) {
       let key = measuredParams[i];
       this.measuredBetter[key] = false;
-      if (this.params.measured[key] && this.params[key] && this.params.measured[key] >= this.params[key]) {
+      if (options.measured[key] && options[key] && options.measured[key] >= options[key]) {
         this.measuredBetter[key] = true;
       }
     }

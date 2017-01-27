@@ -6,9 +6,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content no-padding>
 
-  <h1>{{lamp.brand}} {{lamp.model}}</h1>
+  <h1 padding>{{lamp.brand}} {{lamp.model}}</h1>
 
   <a class="button button-full button-large button-balanced" href="{{pageLink}}">Посмотреть на сайте</a>
 
@@ -131,12 +131,12 @@
 
       <tr class="even">
         <td class="bold">работа с выключателем, имеющим индикатор</td>
-        <td colspan="2">{{lamp.switch_indicator_support}}</td>
+        <td colspan="2">{{lamp.switchIndicatorSupport}}</td>
       </tr>
 
       <tr>
         <td class="bold">диммирование</td>
-        <td colspan="2">{{lamp.dimmer_support}}</td>
+        <td colspan="2">{{lamp.dimmerSupport}}</td>
       </tr>
 
       <tr class="even">
@@ -156,17 +156,17 @@
 
       <tr>
         <td class="bold">цена в рублях</td>
-        <td colspan="2">{{lamp.price_rur}}</td>
+        <td colspan="2">{{lamp.priceRur}}</td>
       </tr>
 
       <tr class="even">
         <td class="bold">цена в долларах</td>
-        <td colspan="2">{{lamp.price_usd}}</td>
+        <td colspan="2">{{lamp.priceUsd}}</td>
       </tr>
 
       <tr>
         <td class="bold">дата тестирования</td>
-        <td colspan="2">{{lamp.test_date}}</td>
+        <td colspan="2">{{lamp.testDate}}</td>
       </tr>
 
       <tr class="even">
