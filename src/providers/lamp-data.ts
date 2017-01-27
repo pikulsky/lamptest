@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {Lamp} from "../models/lamp";
 
 declare var data: any;
 
@@ -12,7 +13,11 @@ export class LampData {
     if (data) {
       for (let upc in data) {
         if (data.hasOwnProperty(upc)) {
-          this.data[upc] = data[upc];
+
+          let lamp = new Lamp();
+          if (lamp.init(data[upc])) {
+            this.data[upc] = lamp;
+          }
 
           let title = data[upc].brand + ' ' + data[upc].model;
           if (title) {
