@@ -25,3 +25,5 @@ TODO
 * Add lamp rating to the list, near the lamp title.
 * Update lamps dynamically.
 * Sometimes the lamp is marked as obsolete although it was previously displayed as active, e.g.: X-Flash 42968, 42975
+* Multiple lamps with the same barcode
+* New params - weight, CQS, minimum voltage, driver type, max case temperature.
