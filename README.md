@@ -27,3 +27,4 @@ TODO
 * Sometimes the lamp is marked as obsolete although it was previously displayed as active, e.g.: X-Flash 42968, 42975
 * Multiple lamps with the same barcode
 * Move values representation logic to the lamp template from lamp model.
+* Replace stock WebView with Crosswalk.
