@@ -11,13 +11,18 @@ page-lamp {
     table {
       width: 100%;
 
-      tr.even {
+      tr:nth-child(even) {
         background-color: aliceblue;
       }
 
       tr.header {
         font-weight: bold;
         background-color: #FFD95D;
+      }
+
+      tr.section-last {
+        vertical-align: top;
+        height: 50px;
       }
 
       td {

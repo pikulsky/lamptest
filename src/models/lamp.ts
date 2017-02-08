@@ -11,9 +11,9 @@ export class Lamp {
   public type: string;
   public subtype: string;
   public matte: string;
-  public P: string;
+  public P: number;
   public lm: string;
-  public ekv: string;
+  public ekvP: string;
   public color: string;
   public age: string;
   public effectiveness: string;
@@ -22,10 +22,15 @@ export class Lamp {
   public dimmerSupport: string;
   public diameter: string;
   public height: number;
-  public voltage: number;
+  public weight: number;
+  public voltage: string;
+  public minVoltage: number;
+  public driver: string;
+  public tempMax: number;
   public priceRur: number;
   public priceUsd: number;
   public testDate: string;
+  public manufactureDate: string;
   public relevant: string;
   public rating: string;
 
@@ -35,12 +40,17 @@ export class Lamp {
   public externalPageLink: string;
   public lampPhoto: string;
   public lampGraph: string;
+  public lampCRIGraph: string;
 
   constructor() {}
 
   init(options: any) {
     if (!options.brand || !options.model) {
       return false;
+    }
+
+    if (options.model === '004296') {
+      console.log(options);
     }
 
     this.brand = options.brand;
@@ -56,25 +66,53 @@ export class Lamp {
     this.externalPageLink = 'http://lamptest.ru/review/' + this.normalizedBrand + '-' + this.normalizedModel;
     this.lampPhoto = 'http://lamptest.ru/images/photo/' + this.normalizedBrand + '-' + this.normalizedModel + '.jpg';
     this.lampGraph = 'http://lamptest.ru/images/graph/' + this.normalizedBrand + '-' + this.normalizedModel + '.png';
+    this.lampCRIGraph = 'http://lamptest.ru/images/color-index/' + this.normalizedBrand + '-' + this.normalizedModel + '.png';
 
+    this.P = parseFloat(options.P);
     this.baseType = options.base_type;
     this.class = options.class;
-    this.type = options.type;
+    this.type = options.type === 'LED' ? 'светодиодная' : options.type;
     this.subtype = options.subtype ? options.subtype : 'Н/Д';
     this.matte = options.matte;
+    this.lm = options.lm;
+    this.ekvP = options.ekvP;
+    this.color = options.color;
     this.cri = options.cri ? options.cri : 'Н/Д';
     this.age = options.age;
+
     this.priceRur = options.price_rur ? options.price_rur : null;
     this.priceUsd = options.price_usd ? options.price_usd : null;
+
     this.matte = options.matte ? 'матовая' : 'нет';
     this.effectiveness = (options.measured.lm / options.measured.P).toFixed(1);
     this.relevant = options.relevant && options.relevant == 1 ? 'есть в продаже' : 'не продается';
-    this.dimmerSupport = options.dimmer_support ? 'поддерживается' : 'нет';
     this.diameter = options.diameter;
     this.height = options.height;
+    this.weight = options.weight;
+
     this.voltage = options.voltage;
+    if (options.min_voltage) {
+      this.minVoltage = parseFloat(options.min_voltage);
+    }
+    else {
+      this.minVoltage = -1;
+    }
+
+    this.driver = options.driver ? options.driver : 'Н/Д';
+    this.tempMax = parseFloat(options.temp_max);
     this.testDate = options.test_date;
+    this.manufactureDate = options.manufacture_date;
     this.rating = options.rating;
+
+    this.dimmerSupport = 'Н/Д';
+    switch (parseInt(options.dimmer_support)) {
+      case 0:
+        this.dimmerSupport = 'нет';
+        break;
+      case 1:
+        this.dimmerSupport = 'поддерживается';
+        break;
+    }
 
     this.switchIndicatorSupport = 'Н/Д';
     switch (parseInt(options.switch_indicator_support)) {
@@ -94,7 +132,7 @@ export class Lamp {
 
     this.measured = options.measured;
 
-    let measuredParams = ['P', 'lm', 'ekv', 'color'];
+    let measuredParams = ['P', 'lm', 'ekvP', 'color'];
     let totalMeasuredParams = measuredParams.length;
     for (let i = 0; i < totalMeasuredParams; i++) {
       let key = measuredParams[i];
@@ -102,6 +140,10 @@ export class Lamp {
       if (options.measured[key] && options[key] && options.measured[key] >= options[key]) {
         this.measuredBetter[key] = true;
       }
+    }
+
+    if (options.model === '004296') {
+      console.log(this);
     }
 
     return true;

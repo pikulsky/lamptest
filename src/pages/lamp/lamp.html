@@ -21,9 +21,8 @@
       <img src="{{lamp.lampGraph}}">
     </div>
 
-
     <table>
-      <tr class="even">
+      <tr>
         <td class="bold">изготовитель</td>
         <td colspan="2">{{lamp.brand}}</td>
       </tr>
@@ -33,7 +32,7 @@
         <td colspan="2">{{lamp.model}}</td>
       </tr>
 
-      <tr class="even">
+      <tr>
         <td class="bold">штрих-код</td>
         <td colspan="2">{{lamp.upc}}</td>
       </tr>
@@ -43,7 +42,7 @@
         <td colspan="2">{{lamp.baseType}}</td>
       </tr>
 
-      <tr class="even">
+      <tr>
         <td class="bold">вид</td>
         <td colspan="2">{{lamp.class}}</td>
       </tr>
@@ -53,12 +52,12 @@
         <td colspan="2">{{lamp.type}}</td>
       </tr>
 
-      <tr class="even">
+      <tr>
         <td class="bold">подтип</td>
         <td colspan="2">{{lamp.subtype}}</td>
       </tr>
 
-      <tr>
+      <tr class="section-last">
         <td class="bold">матовость</td>
         <td colspan="2">{{lamp.matte}}</td>
       </tr>
@@ -69,9 +68,9 @@
         <td>измеренные</td>
       </tr>
 
-      <tr class="even">
+      <tr>
         <td class="bold">мощность, Вт</td>
-        <td>{{lamp.P}}</td>
+        <td>{{lamp.P.toFixed(1)}}</td>
         <td ng-class="{better: lampCtrl.measuredBetter.P}">{{lamp.measured.P}}</td>
       </tr>
 
@@ -81,10 +80,10 @@
         <td ng-class="{better: lampCtrl.measuredBetter.lm}">{{lamp.measured.lm}}</td>
       </tr>
 
-      <tr class="even">
+      <tr>
         <td class="bold">эквивалент мощности, Вт</td>
-        <td>{{lamp.ekv}}</td>
-        <td ng-class="{better: lampCtrl.measuredBetter.ekv}">{{lamp.measured.ekv}}</td>
+        <td>{{lamp.ekvP}}</td>
+        <td ng-class="{better: lampCtrl.measuredBetter.ekvP}">{{lamp.measured.ekvP}}</td>
       </tr>
 
       <tr>
@@ -93,43 +92,36 @@
         <td>{{lamp.measured.color}}</td>
       </tr>
 
-      <tr class="even">
-        <td>измеренный коэффициент цветового охвата</td>
-        <td>-</td>
-        <td>{{lamp.measured.colorRange}}</td>
-      </tr>
-
       <tr>
         <td class="bold">измеренный угол освещения, град</td>
         <td>-</td>
         <td>{{lamp.measured.angle}}</td>
       </tr>
 
-      <tr class="even">
+      <tr>
         <td class="bold">измеренный коэффициент пульсации, %</td>
         <td>-</td>
         <td>{{lamp.measured.pulsation}}</td>
       </tr>
 
-
       <tr>
+        <td class="bold">индекс цветопередачи (CRI)</td>
+        <td>{{lamp.cri}}</td>
+        <td>{{lamp.measured.cri}}</td>
+      </tr>
+
+      <tr class="section-last">
         <td class="bold">заявленный срок службы, час</td>
         <td>{{lamp.age}}</td>
         <td></td>
       </tr>
 
-      <tr class="even">
+      <tr>
         <td class="bold">эффективность (количество люмен на ватт)</td>
         <td colspan="2">{{lamp.effectiveness}}</td>
       </tr>
 
       <tr>
-        <td class="bold">заявленный CRI, не менее</td>
-        <td>{{lamp.cri}}</td>
-        <td></td>
-      </tr>
-
-      <tr class="even">
         <td class="bold">работа с выключателем, имеющим индикатор</td>
         <td colspan="2">{{lamp.switchIndicatorSupport}}</td>
       </tr>
@@ -139,29 +131,54 @@
         <td colspan="2">{{lamp.dimmerSupport}}</td>
       </tr>
 
-      <tr class="even">
+      <tr>
         <td class="bold">диаметр лампы, мм</td>
         <td colspan="2">{{lamp.diameter}}</td>
       </tr>
 
       <tr>
-        <td class="bold">длина лампы, мм</td>
+        <td class="bold">высота лампы, мм</td>
         <td colspan="2">{{lamp.height}}</td>
       </tr>
 
-      <tr class="even">
-        <td class="bold">рабочее напряжение, В</td>
+      <tr>
+        <td class="bold">вес лампы</td>
+        <td colspan="2">{{lamp.weight ? lamp.weight : 'Н/Д'}}</td>
+      </tr>
+
+      <tr>
+        <td class="bold">заявленное рабочее напряжение, В</td>
         <td colspan="2">{{lamp.voltage}}</td>
       </tr>
 
       <tr>
-        <td class="bold">цена в рублях</td>
-        <td colspan="2">{{lamp.priceRur}}</td>
+        <td class="bold">измеренное минимальное напряжение, В</td>
+        <td colspan="2">{{lamp.minVoltage === -1 ? 'Н/Д' : lamp.minVoltage}}</td>
       </tr>
 
-      <tr class="even">
+      <tr>
+        <td class="bold">драйвер</td>
+        <td colspan="2">{{lamp.driver}}</td>
+      </tr>
+
+      <tr>
+        <td class="bold">максимальная температура</td>
+        <td colspan="2">{{lamp.tempMax ? lamp.tempMax : 'Н/Д'}}</td>
+      </tr>
+
+      <tr>
+        <td class="bold">цена в рублях</td>
+        <td colspan="2">{{lamp.priceRur ? lamp.priceRur : 'Н/Д'}}</td>
+      </tr>
+
+      <tr>
         <td class="bold">цена в долларах</td>
-        <td colspan="2">{{lamp.priceUsd}}</td>
+        <td colspan="2">{{lamp.priceUsd ? lamp.priceUsd : 'Н/Д'}}</td>
+      </tr>
+
+      <tr>
+        <td class="bold">дата изготовления</td>
+        <td colspan="2">{{lamp.manufactureDate ? lamp.manufactureDate : 'Н/Д'}}</td>
       </tr>
 
       <tr>
@@ -169,16 +186,20 @@
         <td colspan="2">{{lamp.testDate}}</td>
       </tr>
 
-      <tr class="even">
+      <tr>
         <td class="bold">актуальность лампы</td>
         <td colspan="2">{{lamp.relevant}}</td>
       </tr>
 
-      <tr>
-        <td class="bold">рейтинг</td>
+      <tr class="section-last">
+        <td class="bold">общая оценка параметров лампы</td>
         <td colspan="2">{{lamp.rating}}</td>
       </tr>
     </table>
+
+    <div>
+      <img src="{{lamp.lampCRIGraph}}">
+    </div>
 
     <div class="data-source">Данные предоставлены сайтом <a href="http://lamptest.ru">Lamptest</a></div>
   </div>
