@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { Platform, NavController } from 'ionic-angular';
+
+declare var cordova: any;
 
 @Component({
   selector: 'page-scan',
@@ -8,8 +10,24 @@ import { NavController } from 'ionic-angular';
 })
 export class ScanPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(private platform: Platform, public navCtrl: NavController) {
 
+  }
+
+  scan() {
+    this.platform.ready()
+      .then(function () {
+        cordova.plugins.barcodeScanner.scan(
+          function (result) {
+            console.log('Success!!');
+            console.log(JSON.stringify(result));
+          },
+          function (error) {
+            console.log('Error!');
+            console.log(JSON.stringify(error));
+          }
+        );
+      });
   }
 
 }
