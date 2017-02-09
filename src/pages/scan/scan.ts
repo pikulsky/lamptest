@@ -22,6 +22,10 @@ export class ScanPage {
 
   }
 
+  ionViewWillEnter() {
+    this.scan();
+  }
+
   scan() {
     let ctrl = this;
 
