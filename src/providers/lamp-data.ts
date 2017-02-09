@@ -44,4 +44,12 @@ export class LampData {
     return this.data[upc];
   }
 
+  isLampAvailable(upc: string) {
+    if (!this.data[upc]) {
+      return false;
+    }
+
+    return true;
+  }
+
 }
