@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {LampPage} from '../lamp/lamp';
 import {LampData} from "../../providers/lamp-data";
 import {FormBuilder, Validators} from "@angular/forms";
+import {Splashscreen} from "ionic-native";
 
 @Component({
   selector: 'page-list',
@@ -17,6 +18,10 @@ export class ListPage {
 
   constructor(public navCtrl: NavController, private lampData: LampData, public formBuilder: FormBuilder) {
     this.lamps = this.lampData.getList(null);
+  }
+
+  ionViewDidEnter() {
+    Splashscreen.hide();
   }
 
   lampClicked(upc: string) {
