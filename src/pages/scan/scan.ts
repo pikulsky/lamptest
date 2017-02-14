@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import {Platform, ToastController, NavController} from 'ionic-angular';
 import {LampPage} from '../lamp/lamp';
 import {LampData} from '../../providers/lamp-data';
-import {ListPage} from '../list/list';
 
 declare var cordova: any;
 
@@ -42,7 +41,8 @@ export class ScanPage {
                 ctrl.navCtrl.push(LampPage, {upc: result.text});
               }
               else {
-                ctrl.navCtrl.push(ListPage);
+                // Switch to lamps tab
+                this.navCtrl.parent.select(2);
 
                 let toast = ctrl.toastCtrl.create({
                   message: 'Лампа с таким штрих-кодом не найдена',
@@ -73,7 +73,8 @@ export class ScanPage {
   }
 
   private barcodeScannerNotAvailable() {
-    this.navCtrl.push(ListPage);
+    // Switch to lamps tab
+    this.navCtrl.parent.select(2);
 
     let toast = this.toastCtrl.create({
       message: 'Сканер штрих-кодов не доступен на данной платформе',
