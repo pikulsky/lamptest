@@ -7,15 +7,17 @@
 </ion-header>
 
 <ion-content>
-
-  <form [formGroup]="searchForm">
-    <ion-input formControlName="searchString" type="text" placeholder="Поиск" (keyup)="search()"></ion-input>
-  </form>
-
   <ion-list>
     <button ion-item *ngFor="let lamp of lamps" (click)="lampClicked(lamp.upc)">
       {{lamp.title}}
     </button>
   </ion-list>
-
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <form [formGroup]="searchForm">
+      <ion-input formControlName="searchString" type="text" placeholder="Поиск" (keyup)="search()"></ion-input>
+    </form>
+  </ion-toolbar>
+</ion-footer>
