@@ -49,10 +49,6 @@ export class Lamp {
       return false;
     }
 
-    if (options.model === '004296') {
-      console.log(options);
-    }
-
     this.brand = options.brand;
     this.model = options.model;
     this.upc = options.upc;
@@ -140,10 +136,6 @@ export class Lamp {
       if (options.measured[key] && options[key] && options.measured[key] >= options[key]) {
         this.measuredBetter[key] = true;
       }
-    }
-
-    if (options.model === '004296') {
-      console.log(this);
     }
 
     return true;
