@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, enableProdMode } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-
 import { TabsPage } from '../pages/tabs/tabs';
 
 
@@ -17,6 +16,11 @@ export class LampTest {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
+
+      // Enable prod mode for devices
+      if (platform.is('ios') || platform.is('android')) {
+        enableProdMode();
+      }
     });
   }
 }
