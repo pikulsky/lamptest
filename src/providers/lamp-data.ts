@@ -32,7 +32,17 @@ export class LampData {
     }
   }
 
-  getList() {
+  getList(keyword: any) {
+    if (typeof keyword === 'string' && keyword.length) {
+      let normalizedKeyword = keyword.toLowerCase();
+      return this.list.filter((listEntry) => {
+        if (listEntry.normalizedTitle.indexOf(normalizedKeyword) === 0) {
+          return true;
+        }
+        return false;
+      });
+    }
+
     return this.list;
   }
 
