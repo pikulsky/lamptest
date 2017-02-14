@@ -37,8 +37,15 @@ export class ScanPage {
         cordova.plugins.barcodeScanner.scan(
           function (result) {
             if (result && result.text && !result.cancelled) {
-              if (ctrl.lampData.isLampAvailable(result.text)) {
-                ctrl.navCtrl.push(LampPage, {upc: result.text});
+              if (ctrl.lampData.areLampsAvailableByUpc(result.text)) {
+                let lamps = ctrl.lampData.getLampsByUpc(result.text);
+                if (lamps.length === 1) {
+                  ctrl.navCtrl.push(LampPage, {upc: result.text, offset: 0});
+                }
+                else {
+                  // TODO Show list with found lamps
+                  ctrl.navCtrl.push(LampPage, {upc: result.text, offset: 0});
+                }
               }
               else {
                 // Switch to lamps tab

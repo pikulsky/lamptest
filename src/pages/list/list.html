@@ -8,7 +8,7 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let lamp of lamps" (click)="lampClicked(lamp.upc)">
+    <button ion-item *ngFor="let lamp of lamps" (click)="lampClicked(lamp.upc, lamp.offset)">
       {{lamp.title}}
     </button>
   </ion-list>

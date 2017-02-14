@@ -14,18 +14,27 @@ export class LampData {
       for (let upc in data) {
         if (data.hasOwnProperty(upc)) {
 
-          let lamp = new Lamp();
-          if (lamp.init(data[upc])) {
-            this.data[upc] = lamp;
+          if (!this.data[upc]) {
+            this.data[upc] = [];
           }
 
-          let title = data[upc].brand + ' ' + data[upc].model;
-          if (title) {
-            this.list.push({
-              title: title,
-              upc: upc,
-              normalizedTitle: title.toLowerCase()
-            });
+          for (let i = 0; i < data[upc].length; i++) {
+            let lampData = data[upc][i];
+            let lamp = new Lamp();
+            if (lamp.init(lampData)) {
+              this.data[upc].push(lamp);
+            }
+
+            let title = lampData.brand + ' ' + lampData.model;
+            if (title) {
+              this.list.push({
+                title: title,
+                upc: upc,
+                offset: i,
+                normalizedTitle: title.toLowerCase()
+              });
+            }
+
           }
         }
       }
@@ -46,7 +55,7 @@ export class LampData {
     return this.list;
   }
 
-  getLamp(upc: string) {
+  getLampsByUpc(upc: string) {
     if (!this.data[upc]) {
       return false;
     }
@@ -54,8 +63,30 @@ export class LampData {
     return this.data[upc];
   }
 
-  isLampAvailable(upc: string) {
+  areLampsAvailableByUpc(upc: string) {
     if (!this.data[upc]) {
+      return false;
+    }
+
+    return true;
+  }
+
+  getLamp(upc: string, offset: number) {
+    if (!this.data[upc]) {
+      return false;
+    }
+    if (!this.data[upc][offset]) {
+      return false;
+    }
+
+    return this.data[upc][offset];
+  }
+
+  isLampAvailable(upc: string, offset: number) {
+    if (!this.data[upc]) {
+      return false;
+    }
+    if (!this.data[upc][offset]) {
       return false;
     }
 

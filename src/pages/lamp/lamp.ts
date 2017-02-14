@@ -13,8 +13,9 @@ export class LampPage {
 
   constructor(navCtrl: NavController, navParams: NavParams, lampData: LampData) {
     let upc = navParams.get('upc');
+    let offset = navParams.get('offset');
 
-    this.lamp = lampData.getLamp(upc);
+    this.lamp = lampData.getLamp(upc, offset);
   }
 
 }

@@ -170,7 +170,10 @@ gulp.task('update-db', function (done) {
       let lampsJson = {};
       for (let i = 1; i < lampsArray.length; i++) {
         let upc = lampsArray[i].upc;
-        lampsJson[upc] = lampsArray[i];
+        if (!lampsJson[upc]) {
+          lampsJson[upc] = [];
+        }
+        lampsJson[upc].push(lampsArray[i]);
       }
 
       fs.writeFile('./src/assets/data.js', 'var data = ' + JSON.stringify(lampsJson) + ';', function(err) {

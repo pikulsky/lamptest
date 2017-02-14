@@ -24,8 +24,8 @@ export class ListPage {
     Splashscreen.hide();
   }
 
-  lampClicked(upc: string) {
-    this.navCtrl.push(LampPage, {upc: upc});
+  lampClicked(upc: string, offset: number) {
+    this.navCtrl.push(LampPage, {upc: upc, offset: offset});
   }
 
   search() {
