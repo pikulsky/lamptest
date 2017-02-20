@@ -24,7 +24,6 @@ TODO
 * Add tooltips for all parameters (some info about the meaning of lamp parameter)
 * Add lamp rating to the list, near the lamp title.
 * Update lamps dynamically.
-* Multiple lamps with the same barcode - display a list of found lamps if there are more than one for scanned barcode.
 * Move values representation logic to the lamp template from lamp model.
 * Replace stock WebView with Crosswalk.
 * Reset control for search on lamps list.
