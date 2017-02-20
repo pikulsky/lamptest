@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 
-import {Platform, ToastController, NavController} from 'ionic-angular';
+import {Platform, ToastController, PopoverController, NavController} from 'ionic-angular';
 import {LampPage} from '../lamp/lamp';
 import {LampData} from '../../providers/lamp-data';
+import {LampsSelectorPage} from "../lamps-selector/lamps-selector";
 
-declare var cordova: any;
+declare let cordova: any;
 
 @Component({
   selector: 'page-scan',
@@ -16,6 +17,7 @@ export class ScanPage {
     private platform: Platform,
     public lampData: LampData,
     private toastCtrl: ToastController,
+    private popoverCtrl: PopoverController,
     private navCtrl: NavController
   ) {
 
@@ -43,8 +45,12 @@ export class ScanPage {
                   ctrl.navCtrl.push(LampPage, {upc: result.text, offset: 0});
                 }
                 else {
-                  // TODO Show list with found lamps
-                  ctrl.navCtrl.push(LampPage, {upc: result.text, offset: 0});
+                  // Present a popover with a list of found lamps
+                  let lampsSelector = ctrl.popoverCtrl.create(LampsSelectorPage, {lamps: lamps});
+                  lampsSelector.onDidDismiss((selected) => {
+                    ctrl.navCtrl.push(LampPage, {upc: selected.upc, offset: selected.offset});
+                  });
+                  lampsSelector.present();
                 }
               }
               else {

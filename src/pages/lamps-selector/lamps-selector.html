@@ -1,0 +1,6 @@
+<ion-list>
+  <ion-list-header>Найдено несколько ламп</ion-list-header>
+  <button ion-item *ngFor="let lamp of lamps; let i = index" (click)="close(lamp.upc, i)">
+    {{lamp.brand}} {{lamp.model}}
+  </button>
+</ion-list>

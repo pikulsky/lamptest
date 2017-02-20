@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Lamp} from "../models/lamp";
 
-declare var data: any;
+declare let data: any;
 
 @Injectable()
 export class LampData {

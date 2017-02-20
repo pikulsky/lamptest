@@ -173,6 +173,9 @@ gulp.task('update-db', function (done) {
         if (!lampsJson[upc]) {
           lampsJson[upc] = [];
         }
+        else {
+          console.log('Duplicate UPC: ' + upc);
+        }
         lampsJson[upc].push(lampsArray[i]);
       }
 

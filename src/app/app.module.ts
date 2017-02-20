@@ -7,6 +7,7 @@ import {ScanPage} from '../pages/scan/scan';
 import {ListPage} from '../pages/list/list';
 import {LampPage} from '../pages/lamp/lamp';
 import {LampData} from '../providers/lamp-data';
+import {LampsSelectorPage} from "../pages/lamps-selector/lamps-selector";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {LampData} from '../providers/lamp-data';
     ListPage,
     ScanPage,
     LampPage,
-    TabsPage
+    TabsPage,
+    LampsSelectorPage
   ],
   imports: [
     IonicModule.forRoot(LampTest)
@@ -27,7 +29,8 @@ import {LampData} from '../providers/lamp-data';
     ListPage,
     ScanPage,
     LampPage,
-    TabsPage
+    TabsPage,
+    LampsSelectorPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, LampData]
 })
