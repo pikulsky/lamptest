@@ -28,3 +28,7 @@ TODO
 * Search control uses only prefix search, does not search by keyword, e.g. search by "томича" wont find "лампа томича"
 * On Android 6 the app reports that barcode is not supported before it asks for permission to use camera
 * Add sorting by lamp rating
+
+NOTES
+----
+https://www.joshmorony.com/high-performance-list-filtering-in-ionic-2/ - check observables, apply to list
