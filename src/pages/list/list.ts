@@ -29,7 +29,9 @@ export class ListPage {
   }
 
   search() {
-    this.updateLampsList(this.searchForm.value.searchString);
+    let timeoutId = setTimeout(() => {
+      this.updateLampsList(this.searchForm.value.searchString);
+    }, 1);
   }
 
   private updateLampsList(searchString: string) {

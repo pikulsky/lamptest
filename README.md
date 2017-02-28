@@ -26,7 +26,6 @@ TODO
 * Replace stock WebView with Crosswalk.
 * Reset control for search on lamps list.
 * Search control uses only prefix search, does not search by keyword, e.g. search by "томича" wont find "лампа томича"
-* Lags when clearing search
 * On Android 6 the app reports that barcode is not supported before it asks for permission to use camera
 * No "ЭРА" lamps in DB (check source)
 * Add sorting by lamp rating
