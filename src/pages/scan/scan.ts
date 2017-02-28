@@ -69,8 +69,15 @@ export class ScanPage {
             }
           },
           function (error) {
-            console.log('Error!');
-            console.log(JSON.stringify(error));
+            if (error === 'Illegal access') {
+              return ctrl.insufficientPermissions();
+            }
+
+            // Unknown error
+            console.log('Barcode scanner error: ' + JSON.stringify(error));
+
+            // Switch to lamps list
+            ctrl.navCtrl.parent.select(2);
 
             let toast = ctrl.toastCtrl.create({
               message: 'Ошибка сканирования штрих-кода',
@@ -83,6 +90,20 @@ export class ScanPage {
           }
         );
       });
+  }
+
+  private insufficientPermissions() {
+    // Switch to lamps tab
+    this.navCtrl.parent.select(2);
+
+    let toast = this.toastCtrl.create({
+      message: 'Для работы сканера штрих-кодов необходим доступ к камере',
+      position: 'middle',
+      showCloseButton: true,
+      closeButtonText: 'X'
+    });
+
+    toast.present();
   }
 
   private barcodeScannerNotAvailable() {
