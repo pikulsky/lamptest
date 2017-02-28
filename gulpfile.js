@@ -1,18 +1,18 @@
-var gulp = require('gulp');
-var livereload = require('gulp-livereload');
-var gutil = require('gulp-util');
-var sequence = require('gulp-sequence');
-var phonegapBuild = require('gulp-phonegap-build');
-var del = require('del');
-var merge = require('merge-stream');
-var process = require('process');
-var express = require('express');
-var connectLr = require('connect-livereload');
-var http = require('http');
-var fs = require('fs');
-var iconv = require('iconv-lite');
+let gulp = require('gulp');
+let livereload = require('gulp-livereload');
+let gutil = require('gulp-util');
+let sequence = require('gulp-sequence');
+let phonegapBuild = require('gulp-phonegap-build');
+let del = require('del');
+let merge = require('merge-stream');
+let process = require('process');
+let express = require('express');
+let connectLr = require('connect-livereload');
+let http = require('http');
+let fs = require('fs');
+let iconv = require('iconv-lite');
 
-var config = require('./gulp.config.local.js');
+let config = require('./gulp.config.local.js');
 
 gulp.task('default', ['phonegap-build-android']);
 
@@ -24,13 +24,13 @@ gulp.task('clean', function(done) {
 });
 
 gulp.task('assemble-assets', ['clean'], function() {
-  var configCopy = gulp.src('config.xml')
+  let configCopy = gulp.src('config.xml')
     .pipe(gulp.dest('build/www'));
 
-  var srcCopy = gulp.src('www/**/*')
+  let srcCopy = gulp.src('www/**/*')
     .pipe(gulp.dest('build/www'));
 
-  var resourcesCopy = gulp.src('resources/**/*')
+  let resourcesCopy = gulp.src('resources/**/*')
     .pipe(gulp.dest('build/www/resources'));
 
   return merge(configCopy, srcCopy, resourcesCopy);
