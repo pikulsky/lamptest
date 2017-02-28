@@ -39,7 +39,7 @@ export class ScanPage {
         cordova.plugins.barcodeScanner.scan(
           function (result) {
             if (result && result.cancelled) {
-              this.navCtrl.parent.select(2);
+              ctrl.navCtrl.parent.select(2);
             }
 
             if (result && result.text && !result.cancelled) {
@@ -59,7 +59,7 @@ export class ScanPage {
               }
               else {
                 // Switch to lamps tab
-                this.navCtrl.parent.select(2);
+                ctrl.navCtrl.parent.select(2);
 
                 let toast = ctrl.toastCtrl.create({
                   message: 'Лампа с таким штрих-кодом не найдена',
