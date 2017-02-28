@@ -14,8 +14,6 @@ bower install
 gulp
 ```
 
-Application building process depends on build.phonegap.com service, so existing build.phonegap.com service account is required.
-
 TODO
 ----
 * Add support for other lamp types (CFL and incandescent, see 0043168179386 and 4895041412655)
