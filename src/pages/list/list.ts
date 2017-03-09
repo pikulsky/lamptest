@@ -37,7 +37,6 @@ export class ListPage {
   }
 
   private updateLampsList(searchString: string) {
-
     this.lamps = this.lampData.getList(searchString);
   }
 }
