@@ -2,8 +2,9 @@ import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {LampPage} from '../lamp/lamp';
 import {LampData} from "../../providers/lamp-data";
-import {FormBuilder, Validators} from "@angular/forms";
+import {FormControl} from "@angular/forms";
 import {Splashscreen} from "ionic-native";
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   selector: 'page-list',
@@ -12,12 +13,19 @@ import {Splashscreen} from "ionic-native";
 export class ListPage {
   public lamps: any[] = [];
 
-  public searchForm = this.formBuilder.group({
-    searchString: ["", Validators.required]
-  });
+  public searchTerm: string = '';
+  public searchControl: FormControl;
 
-  constructor(public navCtrl: NavController, private lampData: LampData, public formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, private lampData: LampData) {
     this.lamps = this.lampData.getList(null);
+
+    this.searchControl = new FormControl();
+  }
+
+  ionViewDidLoad() {
+    this.searchControl.valueChanges.debounceTime(200).subscribe(search => {
+      this.updateLampsList(search);
+    });
   }
 
   ionViewDidEnter() {
@@ -28,13 +36,8 @@ export class ListPage {
     this.navCtrl.push(LampPage, {upc: upc, offset: offset});
   }
 
-  search() {
-    let timeoutId = setTimeout(() => {
-      this.updateLampsList(this.searchForm.value.searchString);
-    }, 1);
-  }
-
   private updateLampsList(searchString: string) {
+
     this.lamps = this.lampData.getList(searchString);
   }
 }

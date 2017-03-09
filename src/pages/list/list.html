@@ -16,8 +16,6 @@
 
 <ion-footer>
   <ion-toolbar>
-    <form [formGroup]="searchForm">
-      <ion-input formControlName="searchString" type="text" placeholder="Поиск" (keyup)="search()"></ion-input>
-    </form>
+    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" placeholder="Поиск"></ion-searchbar>
   </ion-toolbar>
 </ion-footer>
