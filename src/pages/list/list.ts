@@ -13,6 +13,7 @@ import 'rxjs/add/operator/debounceTime';
 export class ListPage {
   public lamps: any[] = [];
 
+  public isSearchInProgress: boolean = false;
   public searchTerm: string = '';
   public searchControl: FormControl;
 
@@ -22,9 +23,14 @@ export class ListPage {
     this.searchControl = new FormControl();
   }
 
+  onSearchInput() {
+    this.isSearchInProgress = true;
+  }
+
   ionViewDidLoad() {
     this.searchControl.valueChanges.debounceTime(200).subscribe(search => {
       this.updateLampsList(search);
+      this.isSearchInProgress = false;
     });
   }
 
