@@ -16,6 +16,7 @@ gulp
 
 TODO
 ----
+* Add new content from lamptest (https://geektimes.ru/company/lamptest/blog/286460/)
 * Add support for other lamp types (CFL and incandescent, see 0043168179386 and 4895041412655)
 * Bug: not possible to press Scan again after lamp was not found
 * Add filter by base type (E14, E27)
