@@ -96,6 +96,8 @@ gulp.task('update-db', function (done) {
       let lines = csv.match(/[^\r\n]+/g);
       let lampsArray = [];
 
+      let totalIncomingLamps = lines.length;
+
       for (let i = 1; i < lines.length; i++) {
         let values = lines[i].split(';');
 
@@ -167,6 +169,8 @@ gulp.task('update-db', function (done) {
         return 0;
       });
 
+      let totalLampsWithUpc = lampsArray.length;
+
       let lampsJson = {};
       for (let i = 1; i < lampsArray.length; i++) {
         let upc = lampsArray[i].upc;
@@ -178,6 +182,9 @@ gulp.task('update-db', function (done) {
         }
         lampsJson[upc].push(lampsArray[i]);
       }
+
+      console.log('Total entries in CSV file: ' + totalIncomingLamps);
+      console.log('Total lamps with UPC: ' + totalLampsWithUpc);
 
       fs.writeFile('./src/assets/data.js', 'var data = ' + JSON.stringify(lampsJson) + ';', function(err) {
         if(err) {
