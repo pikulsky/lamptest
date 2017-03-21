@@ -94,7 +94,21 @@ export class Lamp {
       this.minVoltage = -1;
     }
 
-    this.driver = options.driver ? options.driver : 'Н/Д';
+    this.driver = 'Н/Д';
+    switch (parseInt(options.driver)) {
+      case 1:
+        this.driver = 'Импульсный (1)';
+        break;
+      case 2:
+        this.driver = 'Импульсный (2)';
+        break;
+      case 3:
+        this.driver = 'Импульсный (3)';
+        break;
+      case 4:
+        this.driver = 'Линейный';
+        break;
+    }
     this.tempMax = parseFloat(options.temp_max);
     this.testDate = options.test_date;
     this.manufactureDate = options.manufacture_date;
