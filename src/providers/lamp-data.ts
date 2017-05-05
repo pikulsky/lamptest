@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Lamp} from "../models/lamp";
+import { Lamp } from '../models/lamp';
 
 declare let data: any;
 

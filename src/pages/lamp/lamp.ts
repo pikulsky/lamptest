@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
-import {LampData} from "../../providers/lamp-data";
-import {Lamp} from "../../models/lamp";
+import { Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
+import { LampData } from '../../providers/lamp-data';
+import { Lamp } from '../../models/lamp';
 
 @Component({
   selector: 'page-lamp',

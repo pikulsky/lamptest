@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
-import {Platform, ToastController, PopoverController, NavController} from 'ionic-angular';
-import {LampPage} from '../lamp/lamp';
-import {LampData} from '../../providers/lamp-data';
-import {LampsSelectorPage} from "../lamps-selector/lamps-selector";
+import { Platform, ToastController, PopoverController, NavController } from 'ionic-angular';
+import { LampPage } from '../lamp/lamp';
+import { LampData } from '../../providers/lamp-data';
+import { LampsSelectorPage } from '../lamps-selector/lamps-selector';
 
 declare let cordova: any;
 
@@ -13,13 +13,11 @@ declare let cordova: any;
 })
 export class ScanPage {
 
-  constructor(
-    private platform: Platform,
-    public lampData: LampData,
-    private toastCtrl: ToastController,
-    private popoverCtrl: PopoverController,
-    private navCtrl: NavController
-  ) {
+  constructor(private platform: Platform,
+              public lampData: LampData,
+              private toastCtrl: ToastController,
+              private popoverCtrl: PopoverController,
+              private navCtrl: NavController) {
 
   }
 

@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
-import {LampPage} from '../lamp/lamp';
-import {LampData} from "../../providers/lamp-data";
-import {FormControl} from "@angular/forms";
-import {Splashscreen} from "ionic-native";
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { LampPage } from '../lamp/lamp';
+import { LampData } from '../../providers/lamp-data';
+import { FormControl } from '@angular/forms';
+import { Splashscreen } from 'ionic-native';
 import 'rxjs/add/operator/debounceTime';
 
 @Component({

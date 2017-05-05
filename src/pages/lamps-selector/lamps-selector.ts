@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {ViewController, NavParams} from 'ionic-angular';
+import { ViewController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-lamps-selector',
@@ -10,10 +10,8 @@ export class LampsSelectorPage {
 
   lamps: any;
 
-  constructor(
-    private viewCtrl: ViewController,
-    private navParams: NavParams
-  ) {
+  constructor(private viewCtrl: ViewController,
+              private navParams: NavParams) {
   }
 
   ngOnInit() {
