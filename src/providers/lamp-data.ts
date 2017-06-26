@@ -45,7 +45,7 @@ export class LampData {
     if (typeof keyword === 'string' && keyword.length) {
       let normalizedKeyword = keyword.toLowerCase();
       return this.list.filter((listEntry) => {
-        if (listEntry.normalizedTitle.indexOf(normalizedKeyword) === 0) {
+        if (listEntry.normalizedTitle.indexOf(normalizedKeyword) !== -1) {
           return true;
         }
         return false;
