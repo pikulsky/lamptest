@@ -2,6 +2,8 @@ export class Lamp {
 
   private normalizedBrand: string;
   private normalizedModel: string;
+  private normalizedId: string;
+  private normalizedName: string;
 
   public brand: string;
   public model: string;
@@ -60,10 +62,14 @@ export class Lamp {
     this.normalizedModel = options.model.toLowerCase().replace(/[\s\/]+/g, '-').replace(/=/g, '-').replace(/[^A-Za-zА-Яа-я0-9\-\_]/g, '');
     this.normalizedModel = this.transliterate(this.normalizedModel);
 
-    this.externalPageLink = 'http://lamptest.ru/review/' + this.normalizedBrand + '-' + this.normalizedModel;
-    this.lampPhoto = 'http://lamptest.ru/images/photo/' + this.normalizedBrand + '-' + this.normalizedModel + '.jpg';
-    this.lampGraph = 'http://lamptest.ru/images/graph/' + this.normalizedBrand + '-' + this.normalizedModel + '.png';
-    this.lampCRIGraph = 'http://lamptest.ru/images/color-index/' + this.normalizedBrand + '-' + this.normalizedModel + '.png';
+    this.normalizedId = options.id.padStart(5, '0');
+
+    this.normalizedName = this.normalizedId  + '-' + this.normalizedBrand + '-' + this.normalizedModel;
+
+    this.externalPageLink = 'http://lamptest.ru/review/' + this.normalizedName;
+    this.lampPhoto = 'http://lamptest.ru/images/photo/' + this.normalizedName + '.jpg';
+    this.lampGraph = 'http://lamptest.ru/images/graph/' + this.normalizedName + '.png';
+    this.lampCRIGraph = 'http://lamptest.ru/images/color-index/' + this.normalizedName + '.png';
 
     this.P = parseFloat(options.P);
     this.baseType = options.base_type;
