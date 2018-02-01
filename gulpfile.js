@@ -84,6 +84,23 @@ gulp.task('phonegap-build-android', ['assemble-assets'], function(done) {
     });
 });
 
+gulp.task('db', function (done) {
+  // Download lamps CSV file
+  const options = {
+    method: 'HEAD',
+    host: 'lamptest.ru',
+    path: '/led.csv'
+  }
+  http.get(options, function(response) {
+    response.on('data', function (chunk) {
+      console.log('chunk=', chunk);
+    });
+    response.on('end', function () {
+      console.log('header=', response.headers);
+    });
+  });
+});
+
 gulp.task('update-db', function (done) {
   // Download lamps CSV file
   http.get('http://lamptest.ru/led.csv', function(response) {
@@ -92,6 +109,9 @@ gulp.task('update-db', function (done) {
       chunks.push(chunk);
     });
     response.on('end', function () {
+
+      console.log('headers=', response.headers);
+
       let csv = iconv.decode(Buffer.concat(chunks), 'win1251');
       let lines = csv.match(/[^\r\n]+/g);
       let lampsArray = [];
