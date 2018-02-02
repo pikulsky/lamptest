@@ -143,7 +143,7 @@ export class Lamp {
         this.switchIndicatorSupport = 'слабо светится';
         break;
       case 3:
-        this.switchIndicatorSupport = 'вспыхвает';
+        this.switchIndicatorSupport = 'вспыхивает';
         break;
     }
 
