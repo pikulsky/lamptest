@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Lamp } from '../models/lamp';
 
+import http from 'http';
+import process from 'process';
+import url from 'url';
+
+
+//let http = require('http');
+
 declare let data: any;
 
 @Injectable()
@@ -10,6 +17,8 @@ export class LampData {
   private data: any = {};
 
   constructor() {
+    let show = true;
+    let lampShow = null;
     if (data) {
       for (let upc in data) {
         if (data.hasOwnProperty(upc)) {
@@ -23,8 +32,13 @@ export class LampData {
             let lamp = new Lamp();
             if (lamp.init(lampData)) {
               this.data[upc].push(lamp);
-            }
 
+              if (lampShow === null) {
+                lampShow = lamp;
+              }
+
+            }
+            
             let title = lampData.brand + ' ' + lampData.model;
             if (title) {
               this.list.push({
@@ -34,11 +48,62 @@ export class LampData {
                 normalizedTitle: title.toLowerCase()
               });
             }
-
+            
           }
+          
+          
+          if (show) {
+            console.log(lampShow.externalPageLink);
+            show = false;
+            this.checkURL(lampShow.externalPageLink);
+            //this.checkURL(lamp.lampPhoto);
+            //this.checkURL(lamp.lampGraph);
+            //this.checkURL(lamp.lampCRIGraph);
+          }
+
+
+
+
+
         }
       }
     }
+  }
+
+  checkURL(fullurl) {
+    var req = new XMLHttpRequest();
+    req.open('HEAD', fullurl);
+    req.onreadystatechange = function() {
+        if (this.readyState == this.DONE) {
+            //callback(this.status !== 200);
+            console.log('Failed ' + this.status + ' ' + fullurl);
+        }
+    };
+    req.send();
+  }
+
+
+
+  checkURL2(fullurl) {
+
+    const parts = url.parse(fullurl, true);
+    const options = {
+      method: 'HEAD',
+      host: parts.host,
+      path: parts.pathname
+    }
+    http.get(options, function(response) {
+      response.on('data', function (chunk) {
+        // discard data if any
+      });
+      response.on('end', function () {
+        //this.checkStatusCode(url, response.statusCode);
+        if (response.statusCode !== 200) {
+          console.log('Failed ' + response.statusCode + ' ' + url);
+          process.exit();
+        }
+      });
+    });
   }
 
   getList(keyword: any) {

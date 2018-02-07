@@ -5,6 +5,7 @@ import { LampData } from '../../providers/lamp-data';
 import { FormControl } from '@angular/forms';
 import { Splashscreen } from 'ionic-native';
 import 'rxjs/add/operator/debounceTime';
+import http from 'http';
 
 @Component({
   selector: 'page-list',
@@ -21,6 +22,30 @@ export class ListPage {
     this.lamps = this.lampData.getList(null);
 
     this.searchControl = new FormControl();
+  }
+
+
+  checkURL(url) {
+    const options = {
+      method: 'HEAD',
+      host: 'lamptest.ru',
+      path: url,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    }
+    http.get(options, function(response) {
+      response.on('data', function (chunk) {
+        // discard data if any
+      });
+      response.on('end', function () {
+        //this.checkStatusCode(url, response.statusCode);
+        if (response.statusCode !== 200) {
+          console.log('Failed ' + response.statusCode + ' ' + url);
+          //process.exit();
+        }
+      });
+    });
   }
 
   onSearchInput() {
