@@ -1,10 +1,5 @@
 export class Lamp {
 
-  private normalizedBrand: string;
-  private normalizedModel: string;
-  private normalizedId: string;
-  private normalizedName: string;
-
   public brand: string;
   public model: string;
   public upc: string;
@@ -56,20 +51,20 @@ export class Lamp {
     this.model = options.model;
     this.upc = options.upc;
 
-    this.normalizedBrand = options.brand.toLowerCase().replace(/[\s\/]+/g, '-').replace(/=/g, '-').replace(/[^A-Za-zА-Яа-я0-9\-\_]/g, '');
-    this.normalizedBrand = this.transliterate(this.normalizedBrand);
+    const normalizedId = options.id.padStart(5, '0');
+    const normalizedModel = this.normalized(options.model);
+    const normalizedBrand = this.normalized(options.brand);
 
-    this.normalizedModel = options.model.toLowerCase().replace(/[\s\/]+/g, '-').replace(/=/g, '-').replace(/[^A-Za-zА-Яа-я0-9\-\_]/g, '');
-    this.normalizedModel = this.transliterate(this.normalizedModel);
+    const parts = (options.brand === 'noname')
+      ? [normalizedId, normalizedModel]
+      : [normalizedId, normalizedBrand, normalizedModel];
 
-    this.normalizedId = options.id.padStart(5, '0');
+    const normalizedName = parts.join('-');
 
-    this.normalizedName = this.normalizedId  + '-' + this.normalizedBrand + '-' + this.normalizedModel;
-
-    this.externalPageLink = 'http://lamptest.ru/review/' + this.normalizedName;
-    this.lampPhoto = 'http://lamptest.ru/images/photo/' + this.normalizedName + '.jpg';
-    this.lampGraph = 'http://lamptest.ru/images/graph/' + this.normalizedName + '.png';
-    this.lampCRIGraph = 'http://lamptest.ru/images/color-index/' + this.normalizedName + '.png';
+    this.externalPageLink = 'http://lamptest.ru/review/' + normalizedName;
+    this.lampPhoto = 'http://lamptest.ru/images/photo/' + normalizedName + '.jpg';
+    this.lampGraph = 'http://lamptest.ru/images/graph/' + normalizedName + '.png';
+    this.lampCRIGraph = 'http://lamptest.ru/images/color-index/' + normalizedName + '.png';
 
     this.P = parseFloat(options.P);
     this.baseType = options.base_type;
@@ -162,27 +157,34 @@ export class Lamp {
     return true;
   }
 
+  private normalized(str: string) {
+    const normalized = str.toLowerCase()
+      .replace(/[&=\s\/]/g, '-')
+      .replace(/[^*A-Za-zА-Яа-я0-9\-\_]/g, '');
+    return this.transliterate(normalized);
+  }
+
   private transliterate(str: string) {
     let cyr2latChars: any[] = [
       ['а', 'a'], ['б', 'b'], ['в', 'v'], ['г', 'g'],
-      ['д', 'd'], ['е', 'ye'], ['ё', 'yo'], ['ж', 'zh'], ['з', 'z'],
+      ['д', 'd'], ['е', 'e'], ['ё', 'e'], ['ж', 'zh'], ['з', 'z'],
       ['и', 'i'], ['й', 'y'], ['к', 'k'], ['л', 'l'],
       ['м', 'm'], ['н', 'n'], ['о', 'o'], ['п', 'p'], ['р', 'r'],
       ['с', 's'], ['т', 't'], ['у', 'u'], ['ф', 'f'],
-      ['х', 'h'], ['ц', 'c'], ['ч', 'ch'], ['ш', 'sh'], ['щ', 'shch'],
-      ['ъ', ''], ['ы', 'y'], ['ь', ''], ['э', 'e'], ['ю', 'yu'], ['я', 'ya'],
+      ['х', 'kh'], ['ц', 'tc'], ['ч', 'ch'], ['ш', 'sh'], ['щ', 'shch'],
+      ['ъ', ''], ['ы', 'y'], ['ь', ''], ['э', 'e'], ['ю', 'iu'], ['я', 'ia'],
 
       ['А', 'A'], ['Б', 'B'], ['В', 'V'], ['Г', 'G'],
-      ['Д', 'D'], ['Е', 'E'], ['Ё', 'YO'], ['Ж', 'ZH'], ['З', 'Z'],
+      ['Д', 'D'], ['Е', 'E'], ['Ё', 'E'], ['Ж', 'ZH'], ['З', 'Z'],
       ['И', 'I'], ['Й', 'Y'], ['К', 'K'], ['Л', 'L'],
       ['М', 'M'], ['Н', 'N'], ['О', 'O'], ['П', 'P'], ['Р', 'R'],
       ['С', 'S'], ['Т', 'T'], ['У', 'U'], ['Ф', 'F'],
-      ['Х', 'H'], ['Ц', 'C'], ['Ч', 'CH'], ['Ш', 'SH'], ['Щ', 'SHCH'],
+      ['Х', 'Kh'], ['Ц', 'Tc'], ['Ч', 'CH'], ['Ш', 'SH'], ['Щ', 'SHCH'],
       ['Ъ', ''], ['Ы', 'Y'],
       ['Ь', ''],
       ['Э', 'E'],
-      ['Ю', 'YU'],
-      ['Я', 'YA']
+      ['Ю', 'Iu'],
+      ['Я', 'Ia']
     ];
 
     let newStr: string = '';
