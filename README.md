@@ -29,3 +29,4 @@ TODO
 * On Android 6 the app reports that barcode is not supported before it asks for permission to use camera
 * Add sorting by lamp rating
 * Add lamps without UPC to the lamps list
+* Moment lib should be installed by npm and used in TS
