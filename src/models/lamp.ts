@@ -51,7 +51,7 @@ export class Lamp {
     this.model = options.model;
     this.upc = options.upc;
 
-    const normalizedId = options.id.padStart(5, '0');
+    const normalizedId = this.padLeftId(options.id);
     const normalizedModel = this.normalized(options.model);
     const normalizedBrand = this.normalized(options.brand);
 
@@ -155,6 +155,10 @@ export class Lamp {
     }
 
     return true;
+  }
+
+  private padLeftId(str: string) {
+    return '0'.repeat(5 - str.length) + str;
   }
 
   private normalized(str: string) {
